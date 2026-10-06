@@ -918,7 +918,16 @@ def main():
 
         # Paper Metadata Banner
         st.markdown("---")
-        m_c1, m_c2, m_c3, m_c4 = st.columns([3, 1, 1, 1])
+        st.markdown("""
+        <style>
+        [data-testid="stMetricValue"] {
+            font-size: 1.5rem !important;
+            overflow: visible !important;
+            text-overflow: clip !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        m_c1, m_c2, m_c3, m_c4 = st.columns([3.2, 0.9, 0.9, 1.0])
         with m_c1:
             st.subheader(f"📑 {meta.get('title', 'Academic Paper')}")
             st.caption(f"**Authors:** {', '.join(meta.get('authors', [])) if isinstance(meta.get('authors'), list) else meta.get('authors')} | **Year:** {meta.get('year', 'N/A')}")
@@ -927,7 +936,7 @@ def main():
         with m_c3:
             st.metric("Indexed Chunks", meta.get("num_chunks", 0))
         with m_c4:
-            st.metric("Pipeline Status", "Ready (Indexed)")
+            st.metric("Pipeline Status", "Ready", delta="Indexed", delta_color="off")
 
         # Expandable Live Agent Execution Logs
         with st.expander("🕵️ View Real-Time Multi-Agent Activity Log", expanded=False):
