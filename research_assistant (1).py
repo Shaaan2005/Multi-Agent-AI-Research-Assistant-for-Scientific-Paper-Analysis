@@ -739,8 +739,227 @@ def main():
         initial_sidebar_state="expanded"
     )
 
-    st.title("🔬 Multi-Agent AI Research Assistant for Scientific Paper Analysis")
-    st.caption("Collaborative Multi-Agent System: **Orchestrator** ➔ **Document Agent** ➔ **Retrieval Agent** ➔ **Analysis Agent** ➔ **Summarization Agent** ➔ **Grounded Q&A**")
+    # ========================== CUSTOM CLASSY UI THEME ==========================
+    st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    /* Ambient Dark Background */
+    .stApp {
+        background: radial-gradient(circle at 10% 10%, rgba(30, 41, 59, 0.45) 0%, rgba(11, 15, 25, 1) 50%),
+                    radial-gradient(circle at 90% 90%, rgba(49, 46, 129, 0.25) 0%, rgba(11, 15, 25, 1) 60%) !important;
+        color: #f1f5f9;
+    }
+
+    /* Modern Glass Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: rgba(15, 23, 42, 0.8) !important;
+        backdrop-filter: blur(18px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* Hero Typography */
+    .hero-container {
+        padding: 0.8rem 0 0.5rem 0;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        color: #a5b4fc;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+        box-shadow: 0 0 16px rgba(99, 102, 241, 0.18);
+    }
+
+    .hero-title {
+        font-size: 2.3rem !important;
+        font-weight: 800 !important;
+        line-height: 1.18 !important;
+        letter-spacing: -0.03em !important;
+        background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 45%, #93c5fd 80%, #c4b5fd 100%);
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        margin: 0 0 0.4rem 0 !important;
+    }
+
+    .hero-subtitle {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.6rem;
+    }
+
+    /* Active Agent Cards in Sidebar */
+    .agent-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        background: rgba(30, 41, 59, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .agent-card:hover {
+        background: rgba(30, 41, 59, 0.75);
+        border-color: rgba(99, 102, 241, 0.35);
+        transform: translateX(3px);
+    }
+
+    .agent-pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 10px #10b981;
+        flex-shrink: 0;
+        animation: pulse-glow 2s infinite;
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.15); }
+    }
+
+    .agent-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        line-height: 1.2;
+    }
+
+    .agent-role {
+        font-size: 0.71rem;
+        color: #94a3b8;
+        line-height: 1.2;
+    }
+
+    /* KPI Metric Cards */
+    div[data-testid="stMetric"] {
+        background: rgba(30, 41, 59, 0.45) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.07) !important;
+        border-radius: 12px !important;
+        padding: 12px 16px !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.25s ease !important;
+    }
+
+    div[data-testid="stMetric"]:hover {
+        border-color: rgba(99, 102, 241, 0.35) !important;
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15) !important;
+        transform: translateY(-2px);
+    }
+
+    div[data-testid="stMetricLabel"] {
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        color: #94a3b8 !important;
+    }
+
+    div[data-testid="stMetricValue"] {
+        font-size: 1.55rem !important;
+        font-weight: 800 !important;
+        color: #f8fafc !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
+    /* Primary Gradient Button */
+    button[kind="primary"] {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4) !important;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    button[kind="primary"]:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6) !important;
+    }
+
+    /* Sleek Pill Tab Bar */
+    [data-baseweb="tab-list"] {
+        background: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(10px) !important;
+        padding: 5px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        gap: 4px !important;
+    }
+
+    [data-baseweb="tab"] {
+        border-radius: 8px !important;
+        color: #94a3b8 !important;
+        font-weight: 600 !important;
+        font-size: 0.88rem !important;
+        padding: 8px 16px !important;
+        border: none !important;
+        transition: all 0.2s ease !important;
+    }
+
+    [data-baseweb="tab"]:hover {
+        color: #e2e8f0 !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+    }
+
+    [aria-selected="true"] {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(124, 58, 237, 0.25) 100%) !important;
+        color: #f8fafc !important;
+        border: 1px solid rgba(99, 102, 241, 0.5) !important;
+        box-shadow: 0 2px 10px rgba(99, 102, 241, 0.2) !important;
+    }
+
+    [data-baseweb="tab-highlight"] {
+        display: none !important;
+    }
+
+    /* Glass Expanders */
+    div[data-testid="stExpander"] {
+        background: rgba(17, 24, 39, 0.5) !important;
+        border: 1px solid rgba(255, 255, 255, 0.07) !important;
+        border-radius: 10px !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    /* Chat Messages */
+    [data-testid="stChatMessage"] {
+        background: rgba(30, 41, 59, 0.35) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        border-radius: 12px !important;
+        padding: 12px 16px !important;
+        margin-bottom: 10px !important;
+    }
+    </style>
+
+    <div class="hero-container">
+        <div class="hero-badge">⚡ AUTONOMOUS MULTI-AGENT ARCHITECTURE • IEEE RESEARCH PLATFORM</div>
+        <h1 class="hero-title">Multi-Agent AI Research Assistant</h1>
+        <p class="hero-subtitle">Structural PDF ingestion, dual-engine hybrid retrieval (ChromaDB + TF-IDF), and provable page-level citation provenance for scientific literature analysis.</p>
+    </div>
+    """, unsafe_allow_html=True)
     with st.expander("ℹ️ Project Abstract & System Overview", expanded=False):
         st.markdown(
             "Scientific literature review is a time-consuming process that requires searching, reading, comparing, "
@@ -846,8 +1065,7 @@ def main():
             else:
                 st.error("Demo file sample_lora_paper.pdf not found.")
 
-        st.markdown("---")
-        st.markdown("**Agents Active:**")
+        st.markdown("<p style='font-weight:700; font-size:0.9rem; color:#e2e8f0; margin-bottom:0.5rem;'>⚡ Agents Active:</p>", unsafe_allow_html=True)
         agents_list = [
             ("Orchestrator", "Workflow & Routing"),
             ("Document Agent", "PDF Extraction & Chunking"),
@@ -856,8 +1074,17 @@ def main():
             ("Summarizer", "Executive & Tiered Summaries"),
             ("Answer Agent", "Grounded Anti-Hallucination QA")
         ]
-        for a_name, a_role in agents_list:
-            st.markdown(f"• **{a_name}**: {a_role}")
+        agent_cards_html = "".join([
+            f"""<div class="agent-card">
+                <div class="agent-pulse"></div>
+                <div>
+                    <div class="agent-name">{a_name}</div>
+                    <div class="agent-role">{a_role}</div>
+                </div>
+            </div>"""
+            for a_name, a_role in agents_list
+        ])
+        st.markdown(agent_cards_html, unsafe_allow_html=True)
 
     # Top Section: Paper Ingestion
     col_up1, col_up2 = st.columns([2, 1])
@@ -917,25 +1144,26 @@ def main():
         analysis = p_res["analysis"]
 
         # Paper Metadata Banner
-        st.markdown("---")
-        st.markdown("""
-        <style>
-        [data-testid="stMetricValue"] {
-            font-size: 1.5rem !important;
-            overflow: visible !important;
-            text-overflow: clip !important;
-        }
-        </style>
+        authors_str = ', '.join(meta.get('authors', [])) if isinstance(meta.get('authors'), list) else meta.get('authors')
+        st.markdown(f"""
+        <div style="background: rgba(17, 24, 39, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 4px solid #6366f1; border-radius: 12px; padding: 1.1rem 1.4rem; margin: 1.2rem 0 0.8rem 0; box-shadow: 0 8px 24px rgba(0,0,0,0.25);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.3rem;">
+                <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;">Indexed Publication</span>
+                <span style="color: #64748b; font-size: 0.75rem;">•</span>
+                <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 500;">Year: {meta.get('year', 'N/A')}</span>
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #f8fafc; margin: 0 0 0.4rem 0; letter-spacing: -0.02em;">📄 {meta.get('title', 'Academic Paper')}</h2>
+            <div style="color: #94a3b8; font-size: 0.86rem;">
+                <strong style="color: #cbd5e1;">Authors:</strong> {authors_str}
+            </div>
+        </div>
         """, unsafe_allow_html=True)
-        m_c1, m_c2, m_c3, m_c4 = st.columns([3.2, 0.9, 0.9, 1.0])
+        m_c1, m_c2, m_c3 = st.columns(3)
         with m_c1:
-            st.subheader(f"📑 {meta.get('title', 'Academic Paper')}")
-            st.caption(f"**Authors:** {', '.join(meta.get('authors', [])) if isinstance(meta.get('authors'), list) else meta.get('authors')} | **Year:** {meta.get('year', 'N/A')}")
-        with m_c2:
             st.metric("Total Pages", meta.get("num_pages", 0))
-        with m_c3:
+        with m_c2:
             st.metric("Indexed Chunks", meta.get("num_chunks", 0))
-        with m_c4:
+        with m_c3:
             st.metric("Pipeline Status", "Ready", delta="Indexed", delta_color="off")
 
         # Expandable Live Agent Execution Logs
