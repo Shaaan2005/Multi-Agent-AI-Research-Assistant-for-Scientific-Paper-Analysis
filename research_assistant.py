@@ -1013,42 +1013,78 @@ def main():
                     except Exception: pass
                 st.rerun()
         presets = {
-            "Groq (Recommended Free/Fast)": ("https://api.groq.com/openai/v1", "llama-3.3-70b-versatile"),
-            "NVIDIA NIM (Free Trial)": ("https://integrate.api.nvidia.com/v1", "nvidia/nemotron-3-super-120b-a12b"),
-            "OpenAI": ("https://api.openai.com/v1", "gpt-4o-mini"),
-            "Ollama (Local Offline)": ("http://localhost:11434/v1", "llama3.1")
+            "⚡ Groq Cloud (Recommended Free/Fast)": ("https://api.groq.com/openai/v1", "llama-3.3-70b-versatile", "Groq"),
+            "🟢 NVIDIA NIM (Free Trial)": ("https://integrate.api.nvidia.com/v1", "nvidia/nemotron-3-super-120b-a12b", "NVIDIA"),
+            "✳️ OpenAI (GPT-4o Mini)": ("https://api.openai.com/v1", "gpt-4o-mini", "OpenAI"),
+            "🦙 Ollama (Local Offline)": ("http://localhost:11434/v1", "llama3.1", "Ollama")
         }
         provider = st.selectbox("LLM Provider", list(presets.keys()))
+        provider_name = presets[provider][2]
+
+        # Branded Visual Badge with Provider Logo
+        if provider_name == "NVIDIA":
+            st.markdown("""
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 12px; background:rgba(118,185,0,0.12); border:1px solid rgba(118,185,0,0.35); border-radius:8px; margin:4px 0 10px 0;">
+                <span style="font-size:1.1rem; line-height:1;">🟢</span>
+                <span style="color:#76B900; font-weight:700; font-size:0.82rem; letter-spacing:0.02em;">NVIDIA NIM™ Microservice Active</span>
+            </div>
+            """, unsafe_allow_html=True)
+        elif provider_name == "Groq":
+            st.markdown("""
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 12px; background:rgba(245,80,54,0.12); border:1px solid rgba(245,80,54,0.35); border-radius:8px; margin:4px 0 10px 0;">
+                <span style="font-size:1.1rem; line-height:1;">⚡</span>
+                <span style="color:#f97316; font-weight:700; font-size:0.82rem; letter-spacing:0.02em;">Groq® LPU™ Inference Engine Active</span>
+            </div>
+            """, unsafe_allow_html=True)
+        elif provider_name == "OpenAI":
+            st.markdown("""
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 12px; background:rgba(16,163,127,0.12); border:1px solid rgba(16,163,127,0.35); border-radius:8px; margin:4px 0 10px 0;">
+                <span style="font-size:1.1rem; line-height:1;">✳️</span>
+                <span style="color:#10a37f; font-weight:700; font-size:0.82rem; letter-spacing:0.02em;">OpenAI® Official API Active</span>
+            </div>
+            """, unsafe_allow_html=True)
+        elif provider_name == "Ollama":
+            st.markdown("""
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 12px; background:rgba(148,163,184,0.12); border:1px solid rgba(148,163,184,0.3); border-radius:8px; margin:4px 0 10px 0;">
+                <span style="font-size:1.1rem; line-height:1;">🦙</span>
+                <span style="color:#cbd5e1; font-weight:700; font-size:0.82rem; letter-spacing:0.02em;">Ollama Local Daemon (Offline)</span>
+            </div>
+            """, unsafe_allow_html=True)
+
         api_key = st.text_input(
             "API Key",
             type="password",
             value=os.environ.get("LLM_API_KEY", ""),
-            help="Groq: console.groq.com/keys (free) | OpenAI: platform.openai.com | Leave blank for Extractive Mode"
+            help="Groq: console.groq.com/keys (free) | OpenAI: platform.openai.com | NVIDIA: build.nvidia.com | Leave blank for Extractive Mode"
         )
         model_name = st.text_input("Model ID", value=presets[provider][1])
         CFG.update(
             base_url=presets[provider][0],
-            api_key="ollama" if provider.startswith("Ollama") else api_key,
+            api_key="ollama" if "Ollama" in provider else api_key,
             model=model_name
         )
 
         # Provider Key Format Warnings & Test
-        if provider.startswith("Groq"):
+        if "Groq" in provider:
             st.caption("👉 [Get a Free Groq Key (20 secs)](https://console.groq.com/keys)")
             if api_key and not api_key.startswith("gsk_"):
                 st.warning("⚠️ Groq keys usually start with 'gsk_'. If using OpenAI, select OpenAI above.")
-        elif provider == "OpenAI":
+        elif "OpenAI" in provider:
             if api_key and not api_key.startswith("sk-"):
                 st.warning("⚠️ OpenAI keys usually start with 'sk-'.")
+        elif "NVIDIA" in provider:
+            st.caption("👉 [Get a Free NVIDIA NIM Key](https://build.nvidia.com)")
+            if api_key and not api_key.startswith("nvapi-"):
+                st.warning("⚠️ NVIDIA API keys usually start with 'nvapi-'.")
 
         if st.button("🔌 Test API Connection", use_container_width=True):
-            if not api_key and not provider.startswith("Ollama"):
+            if not api_key and "Ollama" not in provider:
                 st.info("No API key entered. Running in Grounded Extractive Mode.")
             else:
                 with st.spinner("Testing API connection..."):
                     test_resp = chat("You are a connection test agent.", "Say OK", temperature=0.1)
                     if test_resp == "[AUTH_ERROR]":
-                        st.error("❌ Key Rejected (401 Unauthorized). Please check your key at console.groq.com/keys.")
+                        st.error("❌ Key Rejected (401 Unauthorized). Please verify your API key.")
                     elif test_resp.startswith("[LLM_ERROR"):
                         st.error(f"❌ Connection error: {test_resp}")
                     else:
@@ -1115,7 +1151,7 @@ def main():
         if not file_to_process:
             st.warning("⚠️ Please upload a PDF paper or click 'Load Built-in Demo Paper' in the sidebar.")
         else:
-            if not CFG["api_key"] and not provider.startswith("Ollama"):
+            if not CFG["api_key"] and "Ollama" not in provider:
                 st.info("ℹ️ Running in Grounded Extractive Mode (no active API key). Document excerpts and citations will be extracted directly.")
             orch = ResearchOrchestrator()
             st.session_state.orchestrator = orch
