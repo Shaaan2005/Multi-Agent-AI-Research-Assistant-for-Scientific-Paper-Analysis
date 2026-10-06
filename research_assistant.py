@@ -847,7 +847,7 @@ def main():
                 st.error("Demo file sample_lora_paper.pdf not found.")
 
         st.markdown("---")
-        st.markdown("**Midterm Agents Active:**")
+        st.markdown("**Agents Active:**")
         agents_list = [
             ("Orchestrator", "Workflow & Routing"),
             ("Document Agent", "PDF Extraction & Chunking"),
