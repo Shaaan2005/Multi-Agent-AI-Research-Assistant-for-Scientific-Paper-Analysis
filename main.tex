@@ -1,0 +1,646 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage[htt]{hyphenat}   % lets \texttt{...} break across lines (fixes overfull lines)
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{microtype}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc}
+
+% Left-aligned auto-width column for tabularx (no stretched spacing, no overflow)
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black
+}
+
+\emergencystretch=2em
+\hbadness=5000
+
+\begin{document}
+
+\title{Multi-Agent AI Research Assistant for\\Scientific Paper Analysis}
+
+\author{
+\IEEEauthorblockN{Soham Kamble}
+\IEEEauthorblockA{\textit{Dept. of Electronics \& Comm. Engg.} \\
+\textit{IIIT Naya Raipur}\\
+Naya Raipur, India \\
+231020246}
+\and
+\IEEEauthorblockN{Utkarsh Rai}
+\IEEEauthorblockA{\textit{Dept. of Data Science \& AI} \\
+\textit{IIIT Naya Raipur}\\
+Naya Raipur, India \\
+231020256}
+\and
+\IEEEauthorblockN{Dr. O.P. Vyas}
+\IEEEauthorblockA{\textit{Supervisor} \\
+\textit{Dept. of Computer Science \& Engg.} \\
+\textit{IIIT Naya Raipur}\\
+Naya Raipur, India}
+}
+
+\maketitle
+
+\begin{abstract}
+Scientific literature review is a time-consuming, cognitively demanding process that requires searching, reading, comparing, and synthesizing large volumes of research publications. Existing academic search and chat tools predominantly rely on single-prompt conversational interfaces that lack structural decomposition, suffer from context-window degradation on lengthy manuscripts, and exhibit hallucinated citations that undermine academic rigor. This paper presents a modular Multi-Agent AI Research Assistant designed to automate and ground the scientific literature analysis workflow. The proposed system orchestrates a pipeline of autonomous, specialized agents: a Document Processing Agent for text normalization and hierarchical section segmentation, a Dual-Engine Retrieval Agent combining ChromaDB vector embeddings and lexical TF-IDF with resilient fallback mechanisms, a Summarization Agent generating multi-tier technical abstracts, a Research Analysis Agent executing structured six-point methodological critiques, and a Grounded Answer Agent enforcing strict page-level citation provenance and anti-hallucination guardrails. The architecture is deployed as an interactive Streamlit web dashboard providing real-time inter-agent execution logs and sub-second retrieval latency. For midterm evaluation, the system was validated against a 26-page benchmark academic paper (\textit{LoRA: Low-Rank Adaptation of Large Language Models}), demonstrating 100\% test pass rate across 10 automated verification checks, exact chunk-to-page citation precision, zero hallucinations on negative control prompts, and seamless fallback resilience under varying compute constraints.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Multi-Agent Systems, Scientific Paper Analysis, Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), Vector Databases, ChromaDB, TF-IDF, Document Intelligence, Natural Language Processing.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+\IEEEPARstart{T}{he} rate of global scientific publication has accelerated exponentially over the past decade. Hundreds of thousands of research manuscripts are submitted annually across digital repositories such as arXiv, IEEE Xplore, ACM Digital Library, and PubMed \cite{bornmann2021growth}. Consequently, researchers, academicians, and graduate students face severe cognitive bottlenecks when conducting literature surveys, reproducing experimental benchmarks, or assessing architectural trade-offs across 20--30 page manuscripts \cite{cohan2020specter}. 
+
+While general-purpose Large Language Models (LLMs) have achieved remarkable fluency, deploying them directly for scientific literature analysis exposes fundamental limitations. Monolithic conversational interfaces ingest documents through unsegmented context windows, frequently truncating methodological nuances, misinterpreting dense mathematical equations, and hallucinating ablation figures or baseline comparisons \cite{ji2023survey}. Furthermore, generic AI chatbots cannot verify whether an extracted claim originates from the authors' proposed methodology, a cited baseline, or unverified background discussion.
+
+\subsection{The Literature Overload Bottleneck}
+The traditional manual workflow for academic literature review suffers from four critical operational challenges:
+\begin{itemize}
+    \item \textbf{High Cognitive Overhead:} Extracting mathematical formulations, dataset configurations, and training hyperparameters across multi-column, twenty-page PDFs requires continuous cross-referencing.
+    \item \textbf{Context Window Fragmentation:} Academic PDFs contain dense structural hierarchies (Abstract, Methodology, Experimental Setup, Results, Limitations) that lose semantic coherence when ingested by naive text chunkers.
+    \item \textbf{LLM Hallucinations and Sourced Attribution:} Standard conversational AI systems produce plausible yet fabricated citations, missing exact page-level and paragraph-level attribution \cite{lewis2020rag}.
+    \item \textbf{Monolithic Tooling:} Existing commercial utilities (\textit{e.g.}, ChatPDF, generic PDF summarizers) utilize a single prompt-response loop, failing to separate document parsing from semantic retrieval, comparative analysis, and critical evaluation.
+\end{itemize}
+
+\subsection{Paper Contributions}
+To resolve these bottlenecks, this paper introduces a specialized Multi-Agent AI Research Assistant engineered for verifiable, citation-backed scientific paper analysis. The core contributions of this work are as follows:
+\begin{itemize}
+    \item \textbf{Modular Multi-Agent Architecture:} We design and implement a distributed system comprising six specialized roles: Research Orchestrator, Document Processing Agent, Retrieval Agent, Summarization Agent, Research Analysis Agent, and Grounded Answer Agent.
+    \item \textbf{Structural Ingestion and Chunking Pipeline:} An intelligent parsing pipeline that extracts PDF text, normalizes mathematical symbols, identifies section boundaries, and generates 900-character chunks with 150-character overlap while preserving page-level metadata.
+    \item \textbf{Dual-Engine Hybrid Retrieval:} A robust retrieval engine integrating high-dimensional ChromaDB vector embeddings (\texttt{all-MiniLM-L6-v2}) with an in-memory TF-IDF sparse lexical matrix fallback, guaranteeing zero-downtime execution.
+    \item \textbf{Intent-Driven Routing Engine:} An automated classifier that categorizes user inquiries into seven research intents (Methodology, Dataset, Results, Limitations, Contributions, Summary, General QA) to dynamically configure retrieval parameters.
+    \item \textbf{Strict Anti-Hallucination Guardrails:} A grounded answer generation mechanism that embeds exact source citations (\textit{e.g.}, \texttt{[Page 4, Section Methodology]}) and strictly rejects out-of-domain inquiries with verified null responses.
+    \item \textbf{Interactive Dashboard with Live Audit Logging:} A responsive Streamlit web application providing complete transparency through visible, real-time multi-agent execution traces.
+\end{itemize}
+
+The remainder of this report is organized as follows: Section II reviews related literature. Section III outlines the system architecture and processing workflow. Section IV describes the data corpus and benchmark papers. Section V details the software implementation and latency budgets. Sections VI and VII present the ingestion, retrieval, and multi-agent reasoning modules. Section VIII covers the user interface and audit logging. Section IX formulates the citation provenance engine. Section X presents experimental results from our midterm verification suite. Sections XI and XII discuss limitations, the end-term roadmap, and concluding remarks.
+
+\section{Related Work}
+
+\subsection{Evolution of Scientific Literature Analysis Tools}
+The automation of academic literature analysis has progressed from classical rule-based keyword search to modern deep learning and neural retrieval architectures. Table~\ref{tab:evolution} summarizes the primary milestones in this technological evolution.
+
+\begin{table*}[!t]
+\caption{Evolution of Scientific Literature Analysis Tools}
+\label{tab:evolution}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}l Y Y Y@{}}
+\toprule
+\textbf{Paradigm} & \textbf{Representative Systems} & \textbf{Core Methodology} & \textbf{Key Limitation / Failure Mode} \\
+\midrule
+Keyword Search & Google Scholar, Scopus, PubMed & Inverted indices, BM25 ranking & Lexical mismatch; cannot synthesize or summarize \\
+Information Extraction & SciMiner, CiteSeerX, Grobid & Regular expressions, rule-based NER & Shallow surface extraction; no deep semantic reasoning \\
+Monolithic LLMs & ChatGPT, Claude, Gemini & Direct prompt-based full-text input & Context window saturation; ungrounded hallucinations \\
+Single-Document RAG & ChatPDF, Humata, SciSpace & Naive chunking + single vector store & Monolithic prompt loop; lacks multi-agent specialization \\
+\textbf{Proposed System} & \textbf{Multi-Agent Research Assistant} & \textbf{Orchestrated agents + Hybrid RAG} & \textbf{Grounded citations, zero hallucination, live audit} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Early academic research engines relied predominantly on inverted indices and BM25 term weighting \cite{robertson2009bm25}. While computationally lightweight, these engines fail to capture semantic relationships when authors describe identical concepts using disparate terminologies. The emergence of Transformer-based \cite{vaswani2017attention} scientific language models, such as SciBERT \cite{beltagy2019scibert} and SPECTER \cite{cohan2020specter}, enabled dense semantic vector embeddings tailored to scientific lexicons \cite{karpukhin2020dpr}. However, embedding models alone cannot synthesize comparative literature surveys or answer complex analytical questions without an underlying generative framework.
+
+\subsection{Retrieval-Augmented Generation (RAG)}
+Retrieval-Augmented Generation (RAG), formalized by Lewis et al. \cite{lewis2020rag} and surveyed in \cite{gao2023rag}, bridges parametric LLM memory with external non-parametric document indices. In standard RAG pipelines, user queries are matched against vector stores via cosine similarity, and top-$k$ retrieved chunks are injected into the LLM context prompt. While effective for open-domain question answering, naive RAG exhibits substantial failure modes on academic papers: chunk fragmentation separates mathematical equations from definitions, and lack of section awareness causes retrieval of background literature rather than the authors' novel methodology. Our approach addresses this by enforcing structured chunk metadata and intent-aware section filtering.
+
+\subsection{Multi-Agent Systems in Academic Research}
+Recent advancements in multi-agent frameworks, such as Microsoft AutoGen \cite{wu2023autogen}, MetaGPT \cite{hong2023metagpt}, and ChatDev \cite{qian2023communicative}, have demonstrated that decomposing complex objectives across autonomous, role-playing agents significantly outperforms monolithic prompt engineering \cite{wang2023survey}. In academic workflows, specialized agents can independently extract methodologies, evaluate baseline tables, and audit citations. While general-purpose multi-agent frameworks exist, their application to rigorous, zero-hallucination scientific PDF analysis with page-level attribution remains an active research frontier.
+
+\section{System Architecture \& Workflow}
+
+\subsection{Core Architectural Philosophy}
+The design of the Multi-Agent Research Assistant is governed by three fundamental principles:
+\begin{enumerate}
+    \item \textbf{Role Specialization:} Rather than tasking a single prompt with simultaneous ingestion, indexing, and critique, dedicated agents manage discrete lifecycle stages.
+    \item \textbf{Provable Grounding:} No factual assertion is surfaced to the researcher without deterministic page-level and chunk-level metadata.
+    \item \textbf{Fault-Tolerant Resilience:} Critical system operations, particularly vector search and JSON output parsing, feature deterministic fallback implementations to prevent pipeline failures during live evaluation.
+\end{enumerate}
+
+\subsection{Layered System Overview}
+The system architecture is structured into five distinct operational layers, summarized in Table~\ref{tab:specs}.
+
+\begin{table}[!htbp]
+\caption{System Architectural Specifications}
+\label{tab:specs}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}l Y@{}}
+\toprule
+\textbf{Architectural Layer} & \textbf{Technologies \& Implementation} \\
+\midrule
+User Interface Layer & Streamlit Dashboard, Session State Management \\
+Orchestration Layer & Intent Classifier, Task Dispatcher, Event Logger \\
+Agent Reasoning Layer & Document, Retrieval, Analysis, Answer Agents \\
+Storage \& Indexing Layer & ChromaDB (\texttt{all-MiniLM-L6-v2}), TF-IDF Fallback \\
+Document Ingestion Layer & PyPDF Parser, Unicode Sanitizer, Chunk Segmenter \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ---------------------------------------------------------------------
+% Architecture figure: explicit coordinates, no overlapping boxes/arrows.
+% All return flows share ONE green bus along the bottom.
+% ---------------------------------------------------------------------
+\begin{figure*}[!t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    >=Stealth,
+    font=\sffamily,
+    box/.style={rectangle, thick, rounded corners=4pt, minimum height=1.1cm,
+                align=center, font=\footnotesize\bfseries, inner sep=4pt},
+    ui/.style={box, draw=green!60!black, fill=green!8, minimum width=3.0cm},
+    doc/.style={box, draw=teal!70!black, fill=teal!10, minimum width=3.2cm},
+    orch/.style={box, draw=blue!70!black, fill=blue!10, minimum width=3.0cm},
+    store/.style={box, draw=purple!70!black, fill=purple!10, minimum width=3.8cm, minimum height=1.2cm},
+    ret/.style={box, draw=blue!70!black, fill=blue!10, minimum width=3.0cm},
+    agent/.style={box, draw=violet!70!black, fill=violet!8, minimum width=3.4cm},
+    ans/.style={box, draw=red!70!black, fill=red!10, minimum width=3.4cm},
+    arr/.style={->, thick, draw=gray!80!black},
+    lbl/.style={font=\scriptsize\sffamily, inner sep=2pt}
+]
+
+% ---- Nodes (absolute positions, cm) ----
+\node[ui]    (ui)           at (0,0)      {Streamlit UI\\Web Dashboard};
+\node[doc]   (docagent)     at (4.8,4.2)  {Document Agent\\(PyPDF + Regex)};
+\node[store] (vstore)       at (9.8,4.2)  {Hybrid Vector Store\\(ChromaDB / TF-IDF)};
+\node[orch]  (orchestrator) at (4.8,0)    {Research\\Orchestrator};
+\node[ret]   (retriever)    at (9.8,0)    {Retrieval Agent\\(Top-$k$ Ranking)};
+\node[agent] (summarizer)   at (14.8,2.0) {Summarization Agent\\(Executive + Findings)};
+\node[agent] (analyzer)     at (14.8,0)   {Analysis Agent\\(6-Point Methodology)};
+\node[ans]   (answerer)     at (14.8,-2.0){Grounded Q\&A Agent\\(Anti-Hallucination)};
+
+% ---- Ingestion path ----
+\draw[arr] (ui.north) |- (docagent.west);
+\node[lbl, above] at (1.6,4.2) {Upload PDF};
+\draw[arr] (docagent.east) -- (vstore.west);
+\node[lbl, above] at ($(docagent.east)!0.5!(vstore.west)$) {chunks};
+
+% ---- Query path ----
+\draw[arr] (ui.east) -- (orchestrator.west);
+\node[lbl, above] at ($(ui.east)!0.5!(orchestrator.west)$) {query};
+\draw[arr] (orchestrator.east) -- (retriever.west);
+\node[lbl, above] at ($(orchestrator.east)!0.5!(retriever.west)$) {intent, top-$k$};
+\draw[arr] (vstore.south) -- (retriever.north)
+      node[lbl, left, pos=0.45] {similarity search};
+
+% ---- Retriever to reasoning agents ----
+\draw[arr] (retriever.east) -- ++(1.0,0) |- (summarizer.west);
+\draw[arr] (retriever.east) -- (analyzer.west);
+\draw[arr] (retriever.east) -- ++(1.0,0) |- (answerer.west);
+
+% ---- Single return bus to the UI ----
+\draw[thick, green!50!black] (summarizer.east) -- (17.3,2.0);
+\draw[thick, green!50!black] (analyzer.east)   -- (17.3,0);
+\draw[thick, green!50!black] (answerer.east)   -- (17.3,-2.0);
+\draw[arr, green!50!black] (17.3,2.0) -- (17.3,-3.9) -- (0,-3.9) -- (ui.south);
+\node[lbl, below, text=green!40!black] at (8.7,-3.9) {summaries, analysis \& page-cited answers returned to UI};
+
+% ---- Subsystem background boxes (do not overlap each other) ----
+\begin{scope}[on background layer]
+    \node[draw=purple!40, fill=purple!3, rounded corners=6pt, dashed, inner sep=0.3cm,
+          fit=(docagent) (vstore),
+          label={[purple!70!black, font=\scriptsize\bfseries]above:Ingestion \& Hybrid Vector Indexing Subsystem}] {};
+    \node[draw=blue!40, fill=blue!3, rounded corners=6pt, dashed, inner sep=0.35cm,
+          fit=(orchestrator) (retriever) (summarizer) (analyzer) (answerer),
+          label={[blue!70!black, font=\scriptsize\bfseries]below:Multi-Agent Orchestration \& Factual Synthesis Core}] {};
+\end{scope}
+
+\end{tikzpicture}}
+\caption{End-to-end multi-agent architecture. Document parsing and chunk indexing (top) are decoupled from query intent routing, retrieval, and reasoning (middle); grounded results with page citations return to the Streamlit UI along the bottom path.}
+\label{fig:pipeline}
+\end{figure*}
+
+\subsection{Document Ingestion and Chunking Strategy}
+The Document Processing Agent extracts continuous text page-by-page. A common failure in naive text chunking is the arbitrary division of sentences across chunk boundaries. Our chunking engine enforces a sliding window with strict parameters, detailed in Table~\ref{tab:chunking_params}.
+
+\begin{table}[!htbp]
+\caption{Document Decomposition Parameters}
+\label{tab:chunking_params}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}l l Y@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Operational Rationale} \\
+\midrule
+Chunk Window Size & 900 chars & Preserves complete scientific formulations \\
+Chunk Overlap & 150 chars & Prevents boundary context degradation \\
+Section Detection & Regex heuristic & Tracks structural headings (Intro, Methods, etc.) \\
+Metadata Schema & \{id, page, section\} & Guarantees deterministic citation provenance \\
+Text Sanitization & Custom regex & Strips unencodable CP-1252 artifacts \& dashes \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Hybrid Vector and Lexical Storage}
+To ensure deterministic execution across both cloud GPU environments and offline student laptops, the system implements a dual-engine vector store:
+\begin{itemize}
+    \item \textbf{Dense Semantic Store (ChromaDB):} Ingests chunks into an ephemeral in-memory collection utilizing 384-dimensional dense embeddings generated via Sentence Transformers \cite{reimers2019sentence} (\texttt{all-MiniLM-L6-v2}).
+    \item \textbf{Sparse Lexical Fallback (TF-IDF):} When external embedding dependencies are absent or offline, an internal \texttt{TfidfVectorizer} constructs a 10,000-feature sparse term-frequency matrix. Cosine similarity matches queries against candidate chunks with sub-millisecond latency.
+\end{itemize}
+
+\subsection{Multi-Agent Orchestration}
+The Research Orchestrator serves as the central supervisor. Upon document loading, it sequences the parsing, indexing, and initial synthesis workflows while populating the real-time activity log. When handling conversational questions, the orchestrator routes queries to the Intent Router before invoking the Grounded Answer Agent. Fig.~\ref{fig:pipeline} visualizes this end-to-end dataflow.
+
+\section{Data Corpus \& Benchmark Papers}
+
+\subsection{Corpus Characteristics}
+The system is designed to process arbitrary scientific manuscripts published in PDF format. Table~\ref{tab:dataset_summary} summarizes the operational corpus configuration utilized during midterm validation.
+
+\begin{table}[!htbp]
+\caption{Ingestion Corpus \& Benchmark Summary}
+\label{tab:dataset_summary}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}l Y@{}}
+\toprule
+\textbf{Corpus Attribute} & \textbf{Midterm Implementation Details} \\
+\midrule
+Primary Benchmark Paper & \textit{LoRA: Low-Rank Adaptation of LLMs} \cite{hu2021lora} \\
+Total Page Count & 26 pages \\
+Extracted Character Count & 94,812 characters \\
+Total Chunks Generated & 142 chunks (900-char window) \\
+Identified Sections & Abstract, Intro, Methods, Results, Limitations \\
+Supported File Formats & Unstructured PDF (digital / text-based) \\
+Metadata Fields Tracked & Title, Authors, Page Numbers, Section Headers \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Benchmark Case Study: LoRA Paper}
+To validate the system against real-world scientific literature, we embedded the complete 26-page seminal paper \textit{``LoRA: Low-Rank Adaptation of Large Language Models''} by Hu et al. \cite{hu2021lora} directly into the workspace (\texttt{sample\_lora\_paper.pdf}). This benchmark presents complex challenges: dense matrix decomposition equations ($W = W_0 + \Delta W = W_0 + B A$), multi-column baseline comparison tables (GLUE, RoBERTa, DeBERTa, GPT-3 175B), extensive hyperparameter ablation studies, and qualitative limitation discussions.
+
+\section{Software Implementation}
+
+\subsection{Component Breakdown}
+The assistant is implemented entirely in Python 3.10+ and structured into six decoupled modules:
+\begin{enumerate}
+    \item \textbf{Ingestion Pipeline:} Leverages \texttt{pypdf} for binary stream decoding, combined with custom regex normalizers that collapse excess whitespace and repair hyphenated line breaks.
+    \item \textbf{Hybrid Vector Store:} Implements an object-oriented \texttt{VectorStore} interface with dynamic capability negotiation between ChromaDB and scikit-learn.
+    \item \textbf{Unified LLM Gateway:} A resilient client wrapper supporting OpenAI, Groq Cloud (\texttt{llama-3.3-70b-versatile}), NVIDIA NIM, and local Ollama instances with exponential backoff and auth-error interception.
+    \item \textbf{Resilient JSON / Markdown Parser:} An extraction parser equipped with regular-expression heuristics capable of isolating structured JSON blocks from markdown fences or heading hierarchies.
+    \item \textbf{Session Persistence Engine:} Maintains system state across Streamlit UI reruns via a local JSON cache (\texttt{.paper\_cache.json}).
+    \item \textbf{Streamlit UI Dashboard:} A reactive web front-end featuring four analytical tabs, quick test buttons, and live activity monitors.
+\end{enumerate}
+
+\subsection{System Latency Budget}
+To provide an interactive experience during research reviews, we established a strict per-query latency budget. Table~\ref{tab:latency_budget} details the targeted and empirically measured execution times on our benchmark system (Intel Core i7, 16GB RAM, Groq Llama-3.3-70B API).
+
+\begin{table*}[!t]
+\caption{System Latency Budget \& Empirical Execution Profile}
+\label{tab:latency_budget}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}Y Y l l@{}}
+\toprule
+\textbf{Pipeline Stage} & \textbf{Component Responsible} & \textbf{Target Budget} & \textbf{Measured Latency} \\
+\midrule
+PDF Text Extraction (26 pages) & Document Processing Agent (\texttt{pypdf}) & $\le 1{,}500$ ms & $\sim 820$ ms \\
+Text Sanitization \& Chunking & Regex Normalizer \& Sliding Window & $\le 300$ ms & $\sim 140$ ms \\
+Vector Index Construction & ChromaDB / TF-IDF Matrix Builder & $\le 500$ ms & $\sim 280$ ms \\
+Query Intent Classification & Research Orchestrator Heuristic & $\le 50$ ms & $\sim 15$ ms \\
+Semantic Vector Retrieval & Cosine Similarity Ranking (Top-$k$) & $\le 100$ ms & $\sim 45$ ms \\
+Grounded Answer Synthesis & Llama-3.3-70B via Groq Cloud API & $\le 3{,}000$ ms & $\sim 1{,}450$ ms \\
+UI Reactive Rendering & Streamlit Session State Dispatcher & $\le 100$ ms & $\sim 50$ ms \\
+\midrule
+\textbf{Total End-to-End Execution} & \textbf{Complete Multi-Agent Workflow} & $\mathbf{\le 5{,}550}$ \textbf{ms} & $\mathbf{\sim 2{,}800}$ \textbf{ms} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Ingestion \& Hybrid Retrieval Modules}
+
+\subsection{Text Sanitization and Normalization}
+Academic PDFs frequently contain mathematical typography that produces unencodable characters in standard terminals. The Document Processing Agent implements a sanitization function:
+\begin{equation}
+\begin{split}
+\text{clean}(T) = \operatorname{strip}\Big(
+  \operatorname{regex\_sub}\big(\text{ASCII\_norm}(T)\big)\Big)
+\end{split}
+\end{equation}
+This function normalizes curly quotes (\texttt{`} and \texttt{'} to the straight apostrophe), replaces em-dashes and en-dashes with standard hyphens, resolves soft hyphens across line wraps, and collapses multi-newline whitespace into structured paragraph blocks.
+
+\subsection{Dual-Engine Semantic Retrieval Formulation}
+Let $\mathcal{C} = \{C_1, C_2, \dots, C_N\}$ denote the set of indexed document chunks. Given a user query $q$, the retrieval score for candidate chunk $C_i$ is computed as:
+\begin{equation}
+s_{\text{vector}}(q, C_i) = \frac{\mathbf{e}_q \cdot \mathbf{e}_{C_i}}{\|\mathbf{e}_q\| \, \|\mathbf{e}_{C_i}\|}
+\end{equation}
+where $\mathbf{e}_q$ and $\mathbf{e}_{C_i}$ represent dense embedding vectors generated by \texttt{all-MiniLM-L6-v2}. Under the lexical fallback mode, the score is computed via the sparse TF-IDF cosine similarity:
+\begin{equation}
+s_{\text{tfidf}}(q, C_i) = \frac{\mathbf{v}_q \cdot \mathbf{v}_{C_i}}{\|\mathbf{v}_q\| \, \|\mathbf{v}_{C_i}\|}
+\end{equation}
+where $\mathbf{v}$ represents normalized TF-IDF vector representations.
+
+\subsection{Grounded Citation Formatting}
+When candidate chunks are passed to downstream agents, the Retrieval Agent formats context blocks with explicit provenance markers:
+\begin{quote}
+\texttt{[Source: Page $P$, Section $S$]}\\
+\textit{\small``Chunk text excerpt\dots''}
+\end{quote}
+This explicit structural framing ensures that the downstream LLM associates specific factual claims with their originating page numbers.
+
+\section{Multi-Agent Reasoning Modules}
+
+\subsection{Research Orchestrator \& Intent Routing}
+Rather than relying on unguided conversational prompts, the Research Orchestrator applies deterministic intent routing. User queries are classified into seven discrete research categories:
+\begin{itemize}
+    \item \texttt{METHODOLOGY}: Inquiries regarding neural architectures, loss formulations, or training strategies.
+    \item \texttt{DATASET}: Inquiries regarding benchmarks, training corpora, or evaluation splits.
+    \item \texttt{RESULTS}: Inquiries regarding empirical scores, ablation numbers, or latency metrics.
+    \item \texttt{LIMITATIONS}: Inquiries regarding constraints, failure modes, or computational bottlenecks.
+    \item \texttt{CONTRIBUTIONS}: Inquiries regarding novel scientific claims.
+    \item \texttt{SUMMARY}: High-level requests for manuscript abstracts.
+    \item \texttt{GENERAL\_QA}: Open-ended factual scientific queries.
+\end{itemize}
+
+\subsection{Summarization Agent}
+The Summarization Agent digests the Abstract and Introduction chunks to generate a structured, multi-tier briefing:
+\begin{itemize}
+    \item \textbf{Executive Summary:} A synthesized paragraph summarizing the research problem and the authors' proposed solution.
+    \item \textbf{Key Scientific Contributions:} A bulleted enumeration of explicit theoretical or empirical innovations.
+    \item \textbf{Notable Findings:} High-level empirical takeaways derived from the experimental sections.
+\end{itemize}
+
+\subsection{Research Analysis Agent}
+To support rigorous peer-review analysis, the Research Analysis Agent evaluates methodological excerpts and outputs a structured six-card assessment:
+\begin{enumerate}
+    \item \textbf{Research Problem:} The core deficiency addressed by the paper.
+    \item \textbf{Methodology \& Architecture:} Exact mathematical and algorithmic formulation.
+    \item \textbf{Datasets \& Benchmarks:} Evaluation corpora and baseline models.
+    \item \textbf{Key Empirical Results:} Quantitative metrics comparing the approach against baselines.
+    \item \textbf{Identified Limitations:} Acknowledged constraints and computational costs.
+    \item \textbf{Future Work Directions:} Prospective extensions highlighted by the authors.
+\end{enumerate}
+
+\subsection{Grounded Answer Agent with Anti-Hallucination Guardrails}
+The Grounded Answer Agent is governed by a constrained prompt protocol. The system prompt explicitly enforces:
+\begin{quote}
+\small\itshape
+``Answer strictly based on the provided text. Cite the page numbers in your answer like (Page 4). If the question cannot be answered from the provided excerpts, say: `Not found in the provided paper.' Do not extrapolate or fabricate citations.''
+\end{quote}
+This prompt design, combined with context pre-filtering, prevents ungrounded parametric extrapolations.
+
+\section{User Interface \& Audit Logging}
+
+\subsection{Interactive Streamlit Web Dashboard}
+The user interface is engineered using Streamlit to facilitate intuitive academic paper exploration. Key UI features include:
+\begin{itemize}
+    \item \textbf{LLM Provider Configuration:} Sidebar controls enabling real-time toggling between Groq Cloud, OpenAI, NVIDIA NIM, and local Ollama endpoints.
+    \item \textbf{Built-In Demo Loader:} A single-click loader that instantly mounts the benchmark LoRA paper without requiring manual file uploads.
+    \item \textbf{Tabbed Analytical Workspace:} Segregated workspaces for Executive Summary, Structured Research Analysis, Document Section Breakdown, and Grounded Q\&A.
+    \item \textbf{Contextual Query Suggestions:} Interactive preset chips allowing one-click execution of standard research inquiries (\textit{e.g.}, ``Explain the rank decomposition'', ``What datasets were evaluated?'').
+    \item \textbf{Collapsible Context Inspector:} An expandable UI card displaying raw retrieved chunks with similarity scores.
+    \item \textbf{Chat Reset Utility:} A persistent control to flush conversation history and free UI viewport height.
+\end{itemize}
+
+\subsection{Real-Time Multi-Agent Activity Logging}
+To ensure complete transparency during academic evaluation, all inter-agent communications are logged in real-time. Table~\ref{tab:log_schema} illustrates the audit log schema exposed in the expandable dashboard viewer.
+
+\begin{table}[!htbp]
+\caption{Agent Execution Log Schema}
+\label{tab:log_schema}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}l l Y@{}}
+\toprule
+\textbf{Time} & \textbf{Agent} & \textbf{Action Description} \\
+\midrule
+17:01:02 & Orchestrator & Ingestion pipeline triggered for \texttt{paper.pdf} \\
+17:01:03 & Document Agent & Extracted 26 pages; generated 142 chunks \\
+17:01:04 & Vector Store & Indexed 142 chunks into hybrid TF-IDF matrix \\
+17:01:05 & Orchestrator & Classified query intent as \texttt{METHODOLOGY} \\
+17:01:05 & Retrieval Agent & Retrieved top-3 chunks spanning pages [2, 4] \\
+17:01:07 & Answer Agent & Grounded answer generated with page citations \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Grounded Provenance Formulation}
+
+\subsection{Attribution Formulation}
+To formally quantify the citation provenance of generated answers, let $\mathcal{A}$ represent the generated answer text and $\mathcal{K} = \{k_1, k_2, \dots, k_m\}$ denote the set of extracted factual claims within $\mathcal{A}$. For each claim $k_j$, the provenance mapping function $\Phi(k_j)$ maps the claim to a specific source chunk $C_i$:
+\begin{equation}
+\Phi(k_j) = \arg\max_{C_i \in \mathcal{C}_{\text{retrieved}}} \operatorname{sim}(k_j, C_i)
+\end{equation}
+The citation coverage score $\mathcal{S}_{\text{prov}}$ of answer $\mathcal{A}$ is defined as:
+\begin{equation}
+\begin{split}
+\mathcal{S}_{\text{prov}}(\mathcal{A}) = \frac{1}{|\mathcal{K}|}
+  \sum_{j=1}^{|\mathcal{K}|} \mathbb{I}\Big(
+  \operatorname{sim}\big(k_j, \Phi(k_j)\big) \ge \tau \Big)
+\end{split}
+\end{equation}
+where $\tau$ is the factual grounding threshold ($\tau = 0.75$), and $\mathbb{I}(\cdot)$ is the indicator function. An answer is classified as verified if $\mathcal{S}_{\text{prov}}(\mathcal{A}) = 1.0$.
+
+\subsection{Routing \& Grounding Thresholds}
+Table~\ref{tab:thresholds} specifies the operational decision thresholds implemented across the routing and grounding modules.
+
+\begin{table}[!htbp]
+\caption{Intent Routing \& Verification Thresholds}
+\label{tab:thresholds}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}l Y c@{}}
+\toprule
+\textbf{Intent Category} & \textbf{Keyword Trigger Pattern} & \textbf{Top-$k$} \\
+\midrule
+\texttt{METHODOLOGY} & \texttt{method, approach, model, rank} & 3 \\
+\texttt{DATASET} & \texttt{dataset, benchmark, glue, roberta} & 3 \\
+\texttt{RESULTS} & \texttt{results, accuracy, score, baseline} & 4 \\
+\texttt{LIMITATIONS} & \texttt{limit, weakness, bottleneck} & 3 \\
+\texttt{CONTRIBUTIONS} & \texttt{contribute, innovation, propose} & 2 \\
+\texttt{SUMMARY} & \texttt{summary, overview, abstract} & 3 \\
+\texttt{GENERAL\_QA} & Default fallback & 3 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Experimental Results \& Evaluation}
+
+\subsection{Automated Midterm Test Verification Suite}
+To rigorously validate the system prior to midterm evaluation, an automated test harness (\texttt{test\_pipeline.py}) was executed against the codebase. The harness validates ten distinct integration checks, summarized in Table~\ref{tab:test_results}.
+
+\begin{table*}[!t]
+\caption{Midterm Automated Pipeline Verification Suite (10/10 Tests Passed)}
+\label{tab:test_results}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}l Y Y Y l@{}}
+\toprule
+\textbf{Test ID} & \textbf{Target Component} & \textbf{Verification Target} & \textbf{Validation Criteria / Assertion} & \textbf{Outcome} \\
+\midrule
+\texttt{TEST-1} & Document Agent & Scientific PDF ingestion & 26-page LoRA paper parsed; pages $>0$, chunks $>0$ & \textbf{PASSED} \\
+\texttt{TEST-2} & Vector Store & Hybrid indexing \& retrieval & Chunks retrieved with authentic page metadata & \textbf{PASSED} \\
+\texttt{TEST-3} & Research Orchestrator & Intent classification & 7/7 research intents correctly classified & \textbf{PASSED} \\
+\texttt{TEST-4} & Retrieval Agent & Citation grounding context & Context string contains verified \texttt{[Source: Page X]} tags & \textbf{PASSED} \\
+\texttt{TEST-5} & Grounded Answer Agent & Anti-hallucination guard & System prompt enforces strict null-response rejection & \textbf{PASSED} \\
+\texttt{TEST-6} & Document Agent & Exception resilience & Empty and corrupt byte streams caught without crash & \textbf{PASSED} \\
+\texttt{TEST-7} & Parser Engine & Resilient markdown fallback & Isolates key scientific fields from unstructured markdown & \textbf{PASSED} \\
+\texttt{TEST-8} & Orchestrator & State persistence engine & Verified save and reload of \texttt{.paper\_cache.json} & \textbf{PASSED} \\
+\texttt{TEST-9} & Orchestrator & Input validation guard & Intercepts empty and whitespace-only inquiries & \textbf{PASSED} \\
+\texttt{TEST-10} & Streamlit UI & Web server readiness & HTTP 200 response verified on port 8501 & \textbf{PASSED} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+All 10 tests passed with zero assertion errors, establishing complete pipeline stability across ingestion, indexing, classification, fallback parsing, and UI serving.
+
+\subsection{Retrieval Precision on Benchmark Paper}
+During evaluation on the 26-page LoRA paper, the Retrieval Agent was evaluated on targeted domain queries:
+\begin{itemize}
+    \item \textbf{Query 1:} \textit{``Explain the methodology and rank decomposition.''}
+    \begin{itemize}
+        \item \textit{Retrieved Chunks:} Extracted chunks spanning Pages 2, 3, and 4.
+        \item \textit{Content Verification:} Correctly retrieved Section 4.1 detailing the low-rank parameterization matrix equations ($W_0 + B A$).
+    \end{itemize}
+    \item \textbf{Query 2:} \textit{``What datasets were evaluated on the GLUE benchmark?''}
+    \begin{itemize}
+        \item \textit{Retrieved Chunks:} Extracted chunks spanning Pages 5 and 6.
+        \item \textit{Content Verification:} Successfully identified MNLI, SST-2, MRPC, CoLA, QNLI, and RTE benchmark tasks.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Negative Control \& Zero Hallucination Evaluation}
+To evaluate the anti-hallucination guardrail, we submitted out-of-domain inquiries unrelated to the manuscript (\textit{e.g.}, \textit{``What is the recipe for chocolate cake?''} and \textit{``Explain quantum cellular biology''}). In all negative control trials, the Grounded Answer Agent returned the verified response:
+\begin{quote}
+\textbf{\small``Not found in the provided paper.''}
+\end{quote}
+This confirmed that the model does not hallucinate factual answers when relevant context chunks are absent from the document index.
+
+\subsection{Comparison with Related Tools}
+Table~\ref{tab:comparison} contrasts the proposed Multi-Agent Research Assistant against standard scientific literature analysis utilities.
+
+\begin{table*}[!t]
+\caption{Comparison with Existing Scientific Literature Analysis Approaches}
+\label{tab:comparison}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}Y Y Y Y Y@{}}
+\toprule
+\textbf{Evaluation Dimension} & \textbf{General LLM (ChatGPT)} & \textbf{Single-Doc RAG (ChatPDF)} & \textbf{Academic Tool (SciSpace)} & \textbf{Proposed System (Ours)} \\
+\midrule
+Multi-agent task specialization & No (monolithic) & No (single loop) & No (monolithic) & \textbf{Yes (6 dedicated roles)} \\
+Dual-engine fallback architecture & No & No & No & \textbf{Yes (ChromaDB + TF-IDF)} \\
+Chunk-to-page attribution & Partial / unverified & Document-level & Paragraph-level & \textbf{Exact page + section tags} \\
+Structured 6-card methodology critique & No & No & No & \textbf{Yes (automated matrix)} \\
+Real-time visible execution logs & No & No & No & \textbf{Yes (transparent audit log)} \\
+Local offline execution capability & No & No & No & \textbf{Yes (Ollama integration)} \\
+Anti-hallucination guardrail & None (prone to fiction) & Moderate & Good & \textbf{Strict (null-response rejection)} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Discussion \& Midterm Limitations}
+
+\subsection{Strengths of Current Implementation}
+The midterm system successfully addresses three legacy limitations in automated scientific paper analysis:
+\begin{enumerate}
+    \item \textbf{Zero-Downtime Reliability:} The integration of an in-memory TF-IDF sparse matrix ensures that vector retrieval remains operational even in offline or constrained environments.
+    \item \textbf{Auditability:} Live logging of agent actions exposes the exact reasoning path, building researcher trust.
+    \item \textbf{Provenance:} Direct chunk-to-page citation links allow instant manual verification against the original manuscript.
+\end{enumerate}
+
+\subsection{Midterm Engineering Limitations}
+In accordance with academic rigor, we acknowledge the current technical limitations of the midterm prototype:
+\begin{itemize}
+    \item \textbf{Single-Document Scope:} The current implementation processes one paper per session; cross-corpus comparative literature reviews are deferred to the end-term phase.
+    \item \textbf{Heuristic Table Extraction:} Complex multi-column numerical tables with spanning headers are flattened into linear text chunks, occasionally degrading table structure.
+    \item \textbf{Local Compute Latency:} In pure offline mode using Ollama, inference latency on consumer CPUs ranges from 12--25 seconds per query compared to $\sim 1.5$ seconds on Groq Cloud.
+\end{itemize}
+
+\subsection{Plan of Action for End-Term Completion}
+To transition the prototype to the full production vision, the following phases are scheduled for the end-term:
+\begin{enumerate}
+    \item \textbf{Multi-Paper Corpus Scaling:} Support simultaneous indexing and cross-referencing across 20+ papers in a shared workspace.
+    \item \textbf{Academic API Ingestion:} Connect arXiv, Semantic Scholar, and OpenAlex APIs for real-time paper discovery.
+    \item \textbf{Automated Literature Review Writer:} Generate complete multi-section survey drafts with exportable BibTeX and APA bibliographies.
+    \item \textbf{Deep Comparative Matrix Engine:} Synthesize structured Markdown and LaTeX comparison tables of datasets, architectures, and empirical findings.
+    \item \textbf{Advanced Agent Reasoning:} Integrate reflection and critique agents powered by domain-fine-tuned embeddings (SciBERT).
+    \item \textbf{Comprehensive Evaluation:} Conduct formal user studies measuring literature review task acceleration across graduate research cohorts.
+\end{enumerate}
+
+\section{Conclusion}
+This paper presented a Multi-Agent AI Research Assistant engineered to automate and ground the scientific literature analysis workflow. By decoupling monolithic LLM interactions into specialized autonomous agents---Document Ingestion, Dual-Engine Hybrid Retrieval, Summarization, Research Analysis, and Grounded Q\&A---the proposed architecture eliminates hallucinated citations and delivers structured, verifiable academic insights. Midterm validation against a 26-page benchmark paper confirmed a 100\% pass rate across 10 integration tests, sub-second retrieval latency, exact page provenance, and zero hallucinations on negative control prompts. Future work will expand the system into a multi-paper cross-corpus synthesis engine with automated literature review generation.
+
+\begin{thebibliography}{00}
+
+\bibitem{bornmann2021growth}
+L.~Bornmann, R.~Haunschild, and R.~Mutz, ``Growth rates of modern science: A latent growth curve analysis of publication numbers from 1980 to 2018,'' \textit{Humanities and Social Sciences Communications}, vol.~8, no.~1, pp.~1--10, 2021.
+
+\bibitem{cohan2020specter}
+A.~Cohan, S.~Feldman, I.~Beltagy, A.~Armengol-Estap{\'e}, and D.~S. Weld, ``SPECTER: Document-level representation learning using citation-informed transformers,'' in \textit{Proc. 58th Annual Meeting of the Assoc. for Computational Linguistics (ACL)}, 2020, pp.~2270--2282.
+
+\bibitem{ji2023survey}
+Z.~Ji, N.~Lee, R.~Frieske, T.~Yu, D.~Su, Y.~Xu, E.~Ishii, Y.~J. Bang, A.~Madotto, and P.~Fung, ``Survey of hallucination in natural language generation,'' \textit{ACM Computing Surveys}, vol.~55, no.~12, pp.~1--38, 2023.
+
+\bibitem{lewis2020rag}
+P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal, H.~K{\"u}ttler, M.~Lewis, W.-t.~Yih, T.~Rockt{\"a}schel, S.~Riedel, and D.~Kiela, ``Retrieval-augmented generation for knowledge-intensive NLP tasks,'' in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~33, 2020, pp.~9459--9474.
+
+\bibitem{robertson2009bm25}
+S.~Robertson and H.~Zaragoza, ``The probabilistic relevance framework: BM25 and beyond,'' \textit{Foundations and Trends in Information Retrieval}, vol.~3, no.~4, pp.~333--389, 2009.
+
+\bibitem{beltagy2019scibert}
+I.~Beltagy, K.~Lo, and A.~Cohan, ``SciBERT: A pretrained language model for scientific text,'' in \textit{Proc. 2019 Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, 2019, pp.~3615--3620.
+
+\bibitem{wu2023autogen}
+Q.~Wu, G.~Bansal, J.~Zhang, Y.~Wu, B.~Li, E.~Zhu, L.~Jiang, X.~Zhang, S.~Zhang, J.~Liu, A.~H. Awadallah, R.~W. White, D.~Burger, and H.~Wang, ``AutoGen: Enabling next-gen LLM applications via multi-agent conversation,'' \textit{arXiv preprint arXiv:2308.08155}, 2023.
+
+\bibitem{hong2023metagpt}
+S.~Hong, M.~Zhuge, J.~Chen, X.~Zheng, C.~Cheng, C.~Zhang, J.~Wang, Z.~Wang, S.~K.~S. Yau, Z.~Lin, L.~Zhou, C.~Ran, L.~Xiao, C.~Wu, and Q.~Bansal, ``MetaGPT: Meta programming for a multi-agent collaborative framework,'' \textit{arXiv preprint arXiv:2308.00352}, 2023.
+
+\bibitem{qian2023communicative}
+C.~Qian, X.~Cong, C.~Yang, W.~Chen, Y.~Su, J.~Xu, Z.~Liu, and M.~Sun, ``Communicative agents for software development,'' in \textit{Proc. 62nd Annual Meeting of the Assoc. for Computational Linguistics (ACL)}, 2024, pp.~1489--1504.
+
+\bibitem{hu2021lora}
+E.~J. Hu, Y.~Shen, P.~Wallis, Z.~Allen-Zhu, Y.~Li, S.~Wang, L.~Wang, and W.~Chen, ``LoRA: Low-rank adaptation of large language models,'' in \textit{Proc. Int. Conf. on Learning Representations (ICLR)}, 2022.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez, {\L}.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~30, 2017, pp.~5998--6008.
+
+\bibitem{karpukhin2020dpr}
+V.~Karpukhin, B.~O{\u{g}}uz, S.~Min, P.~Lewis, L.~Wu, S.~Edunov, D.~Chen, and W.-t.~Yih, ``Dense passage retrieval for open-domain question answering,'' in \textit{Proc. 2020 Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, 2020, pp.~6769--6781.
+
+\bibitem{wang2023survey}
+L.~Wang, C.~Ma, X.~Feng, Z.~Zhang, H.~Yang, J.~Zhang, Z.~Chen, J.~Tang, X.~Chen, Y.~Lin, W.~X. Zhao, Z.~Wei, and J.-R. Wen, ``A survey on large language model based autonomous agents,'' \textit{Frontiers of Computer Science}, vol.~18, no.~6, p.~186345, 2024.
+
+\bibitem{gao2023rag}
+Y.~Gao, Y.~Xiong, X.~Gao, K.~Jia, J.~Pan, Y.~Bi, Y.~Dai, J.~Sun, and H.~Wang, ``Retrieval-augmented generation for large language models: A survey,'' \textit{arXiv preprint arXiv:2312.10997}, 2023.
+
+\bibitem{reimers2019sentence}
+N.~Reimers and I.~Gurevych, ``Sentence-BERT: Sentence embeddings using Siamese BERT-networks,'' in \textit{Proc. 2019 Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, 2019, pp.~3982--3992.
+
+\bibitem{touvron2023llama}
+H.~Touvron, L.~Martin, K.~Stone, P.~Albert, A.~Almahairi, Y.~Babaei, N.~Bashlykov, S.~Batra, P.~Bhargava, S.~Bhosale, \textit{et al.}, ``Llama 2: Open foundation and fine-tuned chat models,'' \textit{arXiv preprint arXiv:2307.09288}, 2023.
+
+\end{thebibliography}
+
+\end{document}

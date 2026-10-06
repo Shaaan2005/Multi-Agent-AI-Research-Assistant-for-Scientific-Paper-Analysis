@@ -1,0 +1,3000 @@
+{
+  "1": [
+    {
+      "shape_idx": 0,
+      "name": "Rectangle 28",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 2",
+      "full_text": "Multi-Agent AI Research Assistant\u000bfor Scientific Paper Analysis\u000b",
+      "paragraphs": [
+        {
+          "text": "Multi-Agent AI Research Assistant\u000bfor Scientific Paper Analysis\u000b",
+          "runs": [
+            "Multi-Agent AI Research Assistant",
+            "for Scientific Paper Analysis"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "PlaceHolder 3",
+      "full_text": "Supervisor: Dr. O.P. Vyas ________________",
+      "paragraphs": [
+        {
+          "text": "Supervisor: Dr. O.P. Vyas ________________",
+          "runs": [
+            "Supervisor: ",
+            "Dr. O.P. Vyas ",
+            "________________"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "TextBox 8",
+      "full_text": "Date: 06/10/2026",
+      "paragraphs": [
+        {
+          "text": "Date: 06/10/2026",
+          "runs": [
+            "Date: 06/10/2026"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Subtitle 4",
+      "full_text": "Group Member: Soham Kamble (231020246), Utkarsh Rai (231020256)",
+      "paragraphs": [
+        {
+          "text": "Group Member: Soham Kamble (231020246), Utkarsh Rai (231020256)",
+          "runs": [
+            "Group Member: ",
+            "Soham Kamble ",
+            "(231020246), ",
+            "Utkarsh Rai ",
+            "(231020256)"
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "2": [
+    {
+      "shape_idx": 0,
+      "name": "Text Box 28",
+      "full_text": "Introduction\nMotivation & Challenges\nLiterature Review\nProblem Definition & Research Gap\nObjectives\nProposed Framework / Methodology\nData & Experimental Plan\nConclusion & Future Directions\nPlan of Action",
+      "paragraphs": [
+        {
+          "text": "Introduction",
+          "runs": [
+            "Introduction"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Motivation & Challenges",
+          "runs": [
+            "Motivation & Challenges"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Literature Review",
+          "runs": [
+            "Literature Review"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Problem Definition & Research Gap",
+          "runs": [
+            "Problem Definition & Research Gap"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Objectives",
+          "runs": [
+            "Objectives"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Proposed Framework / Methodology",
+          "runs": [
+            "Proposed Framework / Methodology"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Data & Experimental Plan",
+          "runs": [
+            "Data & Experimental Plan"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Conclusion & Future Directions",
+          "runs": [
+            "Conclusion & Future Directions"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Plan of Action",
+          "runs": [
+            "Plan of Action"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 1",
+      "full_text": "Content",
+      "paragraphs": [
+        {
+          "text": "Content",
+          "runs": [
+            "Content"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "2",
+      "paragraphs": [
+        {
+          "text": "2",
+          "runs": [
+            "2"
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "3": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Introduction",
+      "paragraphs": [
+        {
+          "text": "Introduction",
+          "runs": [
+            "Introduction"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Text Box 34",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 5",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Slide Number Placeholder 6",
+      "full_text": "3",
+      "paragraphs": [
+        {
+          "text": "3",
+          "runs": [
+            "3"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 38",
+      "full_text": "Scientific literature review requires searching, reading, comparing and summarizing large volumes of papers.\nExisting tools offer limited search or summarization, without intelligent collaboration between specialized components.\nThe proposed system uses multiple autonomous AI agents, each handling one sub-task of the research workflow.\nRetrieval-Augmented Generation (RAG) grounds every answer in the full text of retrieved papers, reducing hallucination.\nOutput: a structured, citation-backed literature review with comparison table, research gaps and BibTeX/APA references.",
+      "paragraphs": [
+        {
+          "text": "Scientific literature review requires searching, reading, comparing and summarizing large volumes of papers.",
+          "runs": [
+            "Scientific literature review requires searching, reading, comparing and summarizing large volumes of papers."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Existing tools offer limited search or summarization, without intelligent collaboration between specialized components.",
+          "runs": [
+            "Existing tools offer limited search or summarization, without intelligent collaboration between specialized components."
+          ],
+          "level": 0
+        },
+        {
+          "text": "The proposed system uses multiple autonomous AI agents, each handling one sub-task of the research workflow.",
+          "runs": [
+            "The proposed system uses multiple autonomous AI agents, each handling one sub-task of the research workflow."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Retrieval-Augmented Generation (RAG) grounds every answer in the full text of retrieved papers, reducing hallucination.",
+          "runs": [
+            "Retrieval-Augmented Generation (RAG) grounds every answer in the full text of retrieved papers, reducing hallucination."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Output: a structured, citation-backed literature review with comparison table, research gaps and BibTeX/APA references.",
+          "runs": [
+            "Output: a structured, citation-backed literature review with comparison table, research gaps and ",
+            "BibTeX",
+            "/APA references."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "4": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Motivation: Issues and Challenges",
+      "paragraphs": [
+        {
+          "text": "Motivation: Issues and Challenges",
+          "runs": [
+            "Motivation: Issues and Challenges"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Text Box 39",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 5",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Slide Number Placeholder 6",
+      "full_text": "4",
+      "paragraphs": [
+        {
+          "text": "4",
+          "runs": [
+            "4"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Rounded Rectangle 43",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 44",
+      "full_text": "Multiple custody points",
+      "paragraphs": [
+        {
+          "text": "Multiple custody points",
+          "runs": [
+            "Multiple custody points"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 7,
+      "name": "TextBox 45",
+      "full_text": "Physical movement and manual handling increase the number of possible leak points.",
+      "paragraphs": [
+        {
+          "text": "Physical movement and manual handling increase the number of possible leak points.",
+          "runs": [
+            "Physical movement and manual handling increase the number of possible leak points."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 8,
+      "name": "Rounded Rectangle 46",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 9,
+      "name": "TextBox 47",
+      "full_text": "Premature access",
+      "paragraphs": [
+        {
+          "text": "Premature access",
+          "runs": [
+            "Premature access"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 10,
+      "name": "TextBox 48",
+      "full_text": "A finalized paper should remain unreadable until the official release time.",
+      "paragraphs": [
+        {
+          "text": "A finalized paper should remain unreadable until the official release time.",
+          "runs": [
+            "A finalized paper should remain unreadable until the official release time."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 11,
+      "name": "Rounded Rectangle 49",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 12,
+      "name": "TextBox 50",
+      "full_text": "Weak traceability",
+      "paragraphs": [
+        {
+          "text": "Weak traceability",
+          "runs": [
+            "Weak traceability"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 13,
+      "name": "TextBox 51",
+      "full_text": "A leaked copy is difficult to attribute to a particular distribution point.",
+      "paragraphs": [
+        {
+          "text": "A leaked copy is difficult to attribute to a particular distribution point.",
+          "runs": [
+            "A leaked copy is difficult to attribute to a particular distribution point."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 14,
+      "name": "Rounded Rectangle 52",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 15,
+      "name": "TextBox 53",
+      "full_text": "Slow leak investigation",
+      "paragraphs": [
+        {
+          "text": "Slow leak investigation",
+          "runs": [
+            "Slow leak investigation"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 16,
+      "name": "TextBox 54",
+      "full_text": "Finding a leaked copy across public online sources is largely manual.",
+      "paragraphs": [
+        {
+          "text": "Finding a leaked copy across public online sources is largely manual.",
+          "runs": [
+            "Finding a leaked copy across public online sources is largely manual."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 17,
+      "name": "TextBox 55",
+      "full_text": "Design principle: reduce custody points while adding cryptographic integrity, time-locking and source traceability.",
+      "paragraphs": [
+        {
+          "text": "Design principle: reduce custody points while adding cryptographic integrity, time-locking and source traceability.",
+          "runs": [
+            "Design principle: reduce custody points while adding cryptographic integrity, time-locking and source traceability."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "5": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Literature Review",
+      "paragraphs": [
+        {
+          "text": "Literature Review",
+          "runs": [
+            "Literature Review"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Date Placeholder 5",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Slide Number Placeholder 6",
+      "full_text": "5",
+      "paragraphs": [
+        {
+          "text": "5",
+          "runs": [
+            "5"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 49",
+      "full_text": "Research direction identified: secure distribution is well studied; combining time-locked delivery with variant-level leak attribution and public-web monitoring is the proposed extension.",
+      "paragraphs": [
+        {
+          "text": "Research direction identified: secure distribution is well studied; combining time-locked delivery with variant-level leak attribution and public-web monitoring is the proposed extension.",
+          "runs": [
+            "Research direction identified: secure distribution is well studied; combining time-locked delivery with variant-level leak attribution and public-web monitoring is the proposed extension."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "shape_idx": 0,
+      "name": "Text Box 48",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 1",
+      "full_text": "Problem Definition / Problem Statement",
+      "paragraphs": [
+        {
+          "text": "Problem Definition / Problem Statement",
+          "runs": [
+            "Problem Definition / Problem Statement"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "6",
+      "paragraphs": [
+        {
+          "text": "6",
+          "runs": [
+            "6"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 53",
+      "full_text": "How can a high-stakes examination paper be distributed digitally to individual centres so that it remains confidential before the exam, is released only at the scheduled time, can be verified as untampered, and can be traced if a copy is leaked online?",
+      "paragraphs": [
+        {
+          "text": "How can a high-stakes examination paper be distributed digitally to individual centres so that it remains confidential before the exam, is released only at the scheduled time, can be verified as untampered, and can be traced if a copy is leaked online?",
+          "runs": [
+            "How can a high-stakes examination paper be distributed digitally to individual centres so that it remains confidential before the exam, is released only at the scheduled time, can be verified as untampered, and can be traced if a copy is leaked online?"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 54",
+      "full_text": "Input: one finalized question paper + centre assignments.\nConstraints: confidentiality, integrity, scheduled access, accountability and scalable digital delivery.\nOutput: an auditable centre-specific paper that becomes decryptable only after the exam-start condition and carries a traceable fingerprint.",
+      "paragraphs": [
+        {
+          "text": "Input: one finalized question paper + centre assignments.",
+          "runs": [
+            "Input: one finalized question paper + centre assignments."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Constraints: confidentiality, integrity, scheduled access, accountability and scalable digital delivery.",
+          "runs": [
+            "Constraints: confidentiality, integrity, scheduled access, accountability and scalable digital delivery."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Output: an auditable centre-specific paper that becomes decryptable only after the exam-start condition and carries a traceable fingerprint.",
+          "runs": [
+            "Output: an auditable centre-specific paper that becomes decryptable only after the exam-start condition and carries a traceable fingerprint."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Research Gap",
+      "paragraphs": [
+        {
+          "text": "Research Gap",
+          "runs": [
+            "Research Gap"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Text Box 54",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 5",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Slide Number Placeholder 6",
+      "full_text": "7",
+      "paragraphs": [
+        {
+          "text": "7",
+          "runs": [
+            "7"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 58",
+      "full_text": "Gap 1 — No end-to-end security loop\nExisting work addresses secure distribution, paper variants, or watermark tracing separately; none combines all three.\n\nGap 2 — Leak discovery is missing\n\nWatermarking can trace a known leak, but existing work does not actively discover leaked copies on public platforms.\n\nGap 3 — Reduced custody is not experimentally validated\n\nThe board → centre model is proposed conceptually; this project will implement and benchmark the reduced-hop workflow.",
+      "paragraphs": [
+        {
+          "text": "Gap 1 — No end-to-end security loop",
+          "runs": [
+            "Gap 1 — No end-to-end security loop"
+          ],
+          "level": 0
+        },
+        {
+          "text": "Existing work addresses secure distribution, paper variants, or watermark tracing separately; none combines all three.",
+          "runs": [
+            "Existing work addresses secure distribution, paper variants, or watermark tracing separately; none combines all three."
+          ],
+          "level": 1
+        },
+        {
+          "text": "",
+          "runs": [],
+          "level": 1
+        },
+        {
+          "text": "Gap 2 — Leak discovery is missing",
+          "runs": [
+            "Gap 2 — Leak discovery is missing"
+          ],
+          "level": 0
+        },
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        },
+        {
+          "text": "Watermarking can trace a known leak, but existing work does not actively discover leaked copies on public platforms.",
+          "runs": [
+            "Watermarking can trace a known leak, but existing work does not actively discover leaked copies on public platforms."
+          ],
+          "level": 1
+        },
+        {
+          "text": "",
+          "runs": [],
+          "level": 1
+        },
+        {
+          "text": "Gap 3 — Reduced custody is not experimentally validated",
+          "runs": [
+            "Gap 3 — Reduced custody is not experimentally validated"
+          ],
+          "level": 0
+        },
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        },
+        {
+          "text": "The board → centre model is proposed conceptually; this project will implement and benchmark the reduced-hop workflow.",
+          "runs": [
+            "The board → centre model is proposed conceptually; this project will implement and benchmark the reduced-hop workflow."
+          ],
+          "level": 1
+        }
+      ]
+    }
+  ],
+  "8": [
+    {
+      "shape_idx": 0,
+      "name": "Text Box 58",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 1",
+      "full_text": "Objectives of the Project",
+      "paragraphs": [
+        {
+          "text": "Objectives of the Project",
+          "runs": [
+            "Objectives of the Project"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "8",
+      "paragraphs": [
+        {
+          "text": "8",
+          "runs": [
+            "8"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 63",
+      "full_text": "Design a digital board → centre examination-paper distribution workflow.\nGenerate multiple centre-specific variants of a common examination paper.\nEncrypt each variant and register its cryptographic hash and metadata on a blockchain.\nImplement smart-contract-based time-locking so decryption is permitted only after the exam-start timestamp.\nBuild a centre-facing interface for authenticated retrieval and local printing.\nAdd watermark/fingerprint-based leak attribution and a public-web monitoring module.\nEvaluate confidentiality, integrity, release timing, traceability and detection performance.",
+      "paragraphs": [
+        {
+          "text": "Design a digital board → centre examination-paper distribution workflow.",
+          "runs": [
+            "Design a digital board → centre examination-paper distribution workflow."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Generate multiple centre-specific variants of a common examination paper.",
+          "runs": [
+            "Generate multiple centre-specific variants of a common examination paper."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Encrypt each variant and register its cryptographic hash and metadata on a blockchain.",
+          "runs": [
+            "Encrypt each variant and register its cryptographic hash and metadata on a blockchain."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Implement smart-contract-based time-locking so decryption is permitted only after the exam-start timestamp.",
+          "runs": [
+            "Implement smart-contract-based time-locking so decryption is permitted only after the exam-start timestamp."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Build a centre-facing interface for authenticated retrieval and local printing.",
+          "runs": [
+            "Build a centre-facing interface for authenticated retrieval and local printing."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Add watermark/fingerprint-based leak attribution and a public-web monitoring module.",
+          "runs": [
+            "Add watermark/fingerprint-based leak attribution and a public-web monitoring module."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Evaluate confidentiality, integrity, release timing, traceability and detection performance.",
+          "runs": [
+            "Evaluate confidentiality, integrity, release timing, traceability and detection performance."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "9": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Proposed Framework / Methodology",
+      "paragraphs": [
+        {
+          "text": "Proposed Framework / Methodology",
+          "runs": [
+            "Proposed Framework / Methodology"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Date Placeholder 5",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Slide Number Placeholder 6",
+      "full_text": "9",
+      "paragraphs": [
+        {
+          "text": "9",
+          "runs": [
+            "9"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 9",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Rounded Rectangle 68",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Oval 69",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 70",
+      "full_text": "1",
+      "paragraphs": [
+        {
+          "text": "1",
+          "runs": [
+            "1"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 7,
+      "name": "TextBox 71",
+      "full_text": "Paper creation",
+      "paragraphs": [
+        {
+          "text": "Paper creation",
+          "runs": [
+            "Paper creation"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 8,
+      "name": "TextBox 72",
+      "full_text": "Mock / authorized\nexam paper",
+      "paragraphs": [
+        {
+          "text": "Mock / authorized\nexam paper",
+          "runs": [
+            "Mock / authorized\nexam paper"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 9,
+      "name": "Right Arrow 73",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 10,
+      "name": "Rounded Rectangle 74",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 11,
+      "name": "Oval 75",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 12,
+      "name": "TextBox 76",
+      "full_text": "2",
+      "paragraphs": [
+        {
+          "text": "2",
+          "runs": [
+            "2"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 13,
+      "name": "TextBox 77",
+      "full_text": "Variant engine",
+      "paragraphs": [
+        {
+          "text": "Variant engine",
+          "runs": [
+            "Variant engine"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 14,
+      "name": "TextBox 78",
+      "full_text": "Shuffle options +\ncentre fingerprint",
+      "paragraphs": [
+        {
+          "text": "Shuffle options +\ncentre fingerprint",
+          "runs": [
+            "Shuffle options +\ncentre fingerprint"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 15,
+      "name": "Right Arrow 79",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 16,
+      "name": "Rounded Rectangle 80",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 17,
+      "name": "Oval 81",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 18,
+      "name": "TextBox 82",
+      "full_text": "3",
+      "paragraphs": [
+        {
+          "text": "3",
+          "runs": [
+            "3"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 19,
+      "name": "TextBox 83",
+      "full_text": "Encryption",
+      "paragraphs": [
+        {
+          "text": "Encryption",
+          "runs": [
+            "Encryption"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 20,
+      "name": "TextBox 84",
+      "full_text": "AES-256 encrypted\nblob per centre",
+      "paragraphs": [
+        {
+          "text": "AES-256 encrypted\nblob per centre",
+          "runs": [
+            "AES-256 encrypted\nblob per centre"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 21,
+      "name": "Right Arrow 85",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 22,
+      "name": "Rounded Rectangle 86",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 23,
+      "name": "Oval 87",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 24,
+      "name": "TextBox 88",
+      "full_text": "4",
+      "paragraphs": [
+        {
+          "text": "4",
+          "runs": [
+            "4"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 25,
+      "name": "TextBox 89",
+      "full_text": "Blockchain",
+      "paragraphs": [
+        {
+          "text": "Blockchain",
+          "runs": [
+            "Blockchain"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 26,
+      "name": "TextBox 90",
+      "full_text": "Hash + centre ID +\nunlock time",
+      "paragraphs": [
+        {
+          "text": "Hash + centre ID +\nunlock time",
+          "runs": [
+            "Hash + centre ID +\nunlock time"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 27,
+      "name": "Right Arrow 91",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 28,
+      "name": "Rounded Rectangle 92",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 29,
+      "name": "Oval 93",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 30,
+      "name": "TextBox 94",
+      "full_text": "5",
+      "paragraphs": [
+        {
+          "text": "5",
+          "runs": [
+            "5"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 31,
+      "name": "TextBox 95",
+      "full_text": "Secure delivery",
+      "paragraphs": [
+        {
+          "text": "Secure delivery",
+          "runs": [
+            "Secure delivery"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 32,
+      "name": "TextBox 96",
+      "full_text": "Encrypted blob →\ncentre system",
+      "paragraphs": [
+        {
+          "text": "Encrypted blob →\ncentre system",
+          "runs": [
+            "Encrypted blob →\ncentre system"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 33,
+      "name": "Right Arrow 97",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 34,
+      "name": "Rounded Rectangle 98",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 35,
+      "name": "Oval 99",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 36,
+      "name": "TextBox 100",
+      "full_text": "6",
+      "paragraphs": [
+        {
+          "text": "6",
+          "runs": [
+            "6"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 37,
+      "name": "TextBox 101",
+      "full_text": "Timed release",
+      "paragraphs": [
+        {
+          "text": "Timed release",
+          "runs": [
+            "Timed release"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 38,
+      "name": "TextBox 102",
+      "full_text": "Smart contract\npermits key access",
+      "paragraphs": [
+        {
+          "text": "Smart contract\npermits key access",
+          "runs": [
+            "Smart contract\npermits key access"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 39,
+      "name": "Right Arrow 103",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 40,
+      "name": "Rounded Rectangle 104",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 41,
+      "name": "Oval 105",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 42,
+      "name": "TextBox 106",
+      "full_text": "7",
+      "paragraphs": [
+        {
+          "text": "7",
+          "runs": [
+            "7"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 43,
+      "name": "TextBox 107",
+      "full_text": "Print",
+      "paragraphs": [
+        {
+          "text": "Print",
+          "runs": [
+            "Print"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 44,
+      "name": "TextBox 108",
+      "full_text": "Decrypt locally\nand print",
+      "paragraphs": [
+        {
+          "text": "Decrypt locally\nand print",
+          "runs": [
+            "Decrypt locally\nand print"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 45,
+      "name": "Right Arrow 109",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 46,
+      "name": "Rounded Rectangle 110",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 47,
+      "name": "Oval 111",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 48,
+      "name": "TextBox 112",
+      "full_text": "8",
+      "paragraphs": [
+        {
+          "text": "8",
+          "runs": [
+            "8"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 49,
+      "name": "TextBox 113",
+      "full_text": "Leak tracing",
+      "paragraphs": [
+        {
+          "text": "Leak tracing",
+          "runs": [
+            "Leak tracing"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 50,
+      "name": "TextBox 114",
+      "full_text": "Scrape public sources\n+ match fingerprint",
+      "paragraphs": [
+        {
+          "text": "Scrape public sources\n+ match fingerprint",
+          "runs": [
+            "Scrape public sources\n+ match fingerprint"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 51,
+      "name": "TextBox 115",
+      "full_text": "Security & traceability layers",
+      "paragraphs": [
+        {
+          "text": "Security & traceability layers",
+          "runs": [
+            "Security & traceability layers"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 52,
+      "name": "Rounded Rectangle 116",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 53,
+      "name": "TextBox 117",
+      "full_text": "Confidentiality",
+      "paragraphs": [
+        {
+          "text": "Confidentiality",
+          "runs": [
+            "Confidentiality"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 54,
+      "name": "TextBox 118",
+      "full_text": "AES-256 encryption",
+      "paragraphs": [
+        {
+          "text": "AES-256 encryption",
+          "runs": [
+            "AES-256 encryption"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 55,
+      "name": "Rounded Rectangle 119",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 56,
+      "name": "TextBox 120",
+      "full_text": "Integrity",
+      "paragraphs": [
+        {
+          "text": "Integrity",
+          "runs": [
+            "Integrity"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 57,
+      "name": "TextBox 121",
+      "full_text": "SHA-256 hashes",
+      "paragraphs": [
+        {
+          "text": "SHA-256 hashes",
+          "runs": [
+            "SHA-256 hashes"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 58,
+      "name": "Rounded Rectangle 122",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 59,
+      "name": "TextBox 123",
+      "full_text": "Access control",
+      "paragraphs": [
+        {
+          "text": "Access control",
+          "runs": [
+            "Access control"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 60,
+      "name": "TextBox 124",
+      "full_text": "Smart contract + centre identity",
+      "paragraphs": [
+        {
+          "text": "Smart contract + centre identity",
+          "runs": [
+            "Smart contract + centre identity"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 61,
+      "name": "Rounded Rectangle 125",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 62,
+      "name": "TextBox 126",
+      "full_text": "Timing",
+      "paragraphs": [
+        {
+          "text": "Timing",
+          "runs": [
+            "Timing"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 63,
+      "name": "TextBox 127",
+      "full_text": "Blockchain timestamp / unlock condition",
+      "paragraphs": [
+        {
+          "text": "Blockchain timestamp / unlock condition",
+          "runs": [
+            "Blockchain timestamp / unlock condition"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 64,
+      "name": "Rounded Rectangle 128",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 65,
+      "name": "TextBox 129",
+      "full_text": "Attribution",
+      "paragraphs": [
+        {
+          "text": "Attribution",
+          "runs": [
+            "Attribution"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 66,
+      "name": "TextBox 130",
+      "full_text": "Variant fingerprint + web matching",
+      "paragraphs": [
+        {
+          "text": "Variant fingerprint + web matching",
+          "runs": [
+            "Variant fingerprint + web matching"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 67,
+      "name": "TextBox 131",
+      "full_text": "Leak detection logic: scrape only permitted public sources / controlled test channels → extract candidate text → normalize → compare against variant fingerprints → flag likely variant/source → record investigation evidence.",
+      "paragraphs": [
+        {
+          "text": "Leak detection logic: scrape only permitted public sources / controlled test channels → extract candidate text → normalize → compare against variant fingerprints → flag likely variant/source → record investigation evidence.",
+          "runs": [
+            "Leak detection logic: scrape only permitted public sources / controlled test channels → extract candidate text → normalize → compare against variant fingerprints → flag likely variant/source → record investigation evidence."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "10": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Data / Database Description",
+      "paragraphs": [
+        {
+          "text": "Data / Database Description",
+          "runs": [
+            "Data / Database Description"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "10",
+      "paragraphs": [
+        {
+          "text": "10",
+          "runs": [
+            "10"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 74",
+      "full_text": "The project does not depend on a conventional ML training dataset; its data is an auditable collection of papers, variants, metadata and observed online content.",
+      "paragraphs": [
+        {
+          "text": "The project does not depend on a conventional ML training dataset; its data is an auditable collection of papers, variants, metadata and observed online content.",
+          "runs": [
+            "The project does not depend on a conventional ML training dataset; its data is an auditable collection of papers, variants, metadata and observed online content."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "11": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Experimental Results & Discussion",
+      "paragraphs": [
+        {
+          "text": "Experimental Results & Discussion",
+          "runs": [
+            "Experimental Results & Discussion"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "11",
+      "paragraphs": [
+        {
+          "text": "11",
+          "runs": [
+            "11"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "TextBox 79",
+      "full_text": "Midterm status: architecture and evaluation protocol defined; final benchmark values will be reported after implementation.",
+      "paragraphs": [
+        {
+          "text": "Midterm status: architecture and evaluation protocol defined; final benchmark values will be reported after implementation.",
+          "runs": [
+            "Midterm status: architecture and evaluation protocol defined; final benchmark values will be reported after implementation."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Rounded Rectangle 80",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 81",
+      "full_text": "Confidentiality",
+      "paragraphs": [
+        {
+          "text": "Confidentiality",
+          "runs": [
+            "Confidentiality"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 7,
+      "name": "TextBox 82",
+      "full_text": "AES-256 encrypted blobs",
+      "paragraphs": [
+        {
+          "text": "AES-256 encrypted blobs",
+          "runs": [
+            "AES-256 encrypted blobs"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 8,
+      "name": "TextBox 83",
+      "full_text": "Verify plaintext is unavailable before authorized release",
+      "paragraphs": [
+        {
+          "text": "Verify plaintext is unavailable before authorized release",
+          "runs": [
+            "Verify plaintext is unavailable before authorized release"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 9,
+      "name": "Rounded Rectangle 84",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 10,
+      "name": "TextBox 85",
+      "full_text": "Integrity",
+      "paragraphs": [
+        {
+          "text": "Integrity",
+          "runs": [
+            "Integrity"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 11,
+      "name": "TextBox 86",
+      "full_text": "SHA-256 paper fingerprints",
+      "paragraphs": [
+        {
+          "text": "SHA-256 paper fingerprints",
+          "runs": [
+            "SHA-256 paper fingerprints"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 12,
+      "name": "TextBox 87",
+      "full_text": "Hash comparison before/after transmission",
+      "paragraphs": [
+        {
+          "text": "Hash comparison before/after transmission",
+          "runs": [
+            "Hash comparison before/after transmission"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 13,
+      "name": "Rounded Rectangle 88",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 14,
+      "name": "TextBox 89",
+      "full_text": "Time-lock",
+      "paragraphs": [
+        {
+          "text": "Time-lock",
+          "runs": [
+            "Time-lock"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 15,
+      "name": "TextBox 90",
+      "full_text": "Smart-contract timestamp",
+      "paragraphs": [
+        {
+          "text": "Smart-contract timestamp",
+          "runs": [
+            "Smart-contract timestamp"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 16,
+      "name": "TextBox 91",
+      "full_text": "Measure early-access rejection + on-time release",
+      "paragraphs": [
+        {
+          "text": "Measure early-access rejection + on-time release",
+          "runs": [
+            "Measure early-access rejection + on-time release"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 17,
+      "name": "Rounded Rectangle 92",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 18,
+      "name": "TextBox 93",
+      "full_text": "Traceability",
+      "paragraphs": [
+        {
+          "text": "Traceability",
+          "runs": [
+            "Traceability"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 19,
+      "name": "TextBox 94",
+      "full_text": "Variant fingerprinting",
+      "paragraphs": [
+        {
+          "text": "Variant fingerprinting",
+          "runs": [
+            "Variant fingerprinting"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 20,
+      "name": "TextBox 95",
+      "full_text": "Measure correct identification of leaked variant",
+      "paragraphs": [
+        {
+          "text": "Measure correct identification of leaked variant",
+          "runs": [
+            "Measure correct identification of leaked variant"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 21,
+      "name": "Rounded Rectangle 96",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 22,
+      "name": "TextBox 97",
+      "full_text": "Web detection",
+      "paragraphs": [
+        {
+          "text": "Web detection",
+          "runs": [
+            "Web detection"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 23,
+      "name": "TextBox 98",
+      "full_text": "Public-source scraper",
+      "paragraphs": [
+        {
+          "text": "Public-source scraper",
+          "runs": [
+            "Public-source scraper"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 24,
+      "name": "TextBox 99",
+      "full_text": "Precision / recall of leak detection on seeded tests",
+      "paragraphs": [
+        {
+          "text": "Precision / recall of leak detection on seeded tests",
+          "runs": [
+            "Precision / recall of leak detection on seeded tests"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 25,
+      "name": "Rounded Rectangle 100",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 26,
+      "name": "TextBox 101",
+      "full_text": "Overhead",
+      "paragraphs": [
+        {
+          "text": "Overhead",
+          "runs": [
+            "Overhead"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 27,
+      "name": "TextBox 102",
+      "full_text": "Blockchain + scraping latency",
+      "paragraphs": [
+        {
+          "text": "Blockchain + scraping latency",
+          "runs": [
+            "Blockchain + scraping latency"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 28,
+      "name": "TextBox 103",
+      "full_text": "Record encryption, transaction and detection time",
+      "paragraphs": [
+        {
+          "text": "Record encryption, transaction and detection time",
+          "runs": [
+            "Record encryption, transaction and detection time"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 29,
+      "name": "TextBox 104",
+      "full_text": "Planned benchmark: compare the proposed workflow against a conventional single-paper / centralized distribution baseline on security properties, release control and leak attribution.",
+      "paragraphs": [
+        {
+          "text": "Planned benchmark: compare the proposed workflow against a conventional single-paper / centralized distribution baseline on security properties, release control and leak attribution.",
+          "runs": [
+            "Planned benchmark: compare the proposed workflow against a conventional single-paper / centralized distribution baseline on security properties, release control and leak attribution."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "12": [
+    {
+      "shape_idx": 0,
+      "name": "Text Box 79",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 1",
+      "full_text": "Conclusion and Future Directions",
+      "paragraphs": [
+        {
+          "text": "Conclusion and Future Directions",
+          "runs": [
+            "Conclusion and Future Directions"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "12",
+      "paragraphs": [
+        {
+          "text": "12",
+          "runs": [
+            "12"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "TextBox 84",
+      "full_text": "The proposed architecture reduces physical custody points by moving to encrypted digital board → centre delivery.\nBlockchain provides an immutable record of paper hashes, centre assignments and release events.\nTime-locked access addresses the pre-exam confidentiality window.\nCentre-specific variants provide a practical mechanism for leak attribution.\nFuture work will integrate the complete smart contract, encryption/decryption portal, public-web scraper, matching engine and end-to-end evaluation.",
+      "paragraphs": [
+        {
+          "text": "The proposed architecture reduces physical custody points by moving to encrypted digital board → centre delivery.",
+          "runs": [
+            "The proposed architecture reduces physical custody points by moving to encrypted digital board → centre delivery."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Blockchain provides an immutable record of paper hashes, centre assignments and release events.",
+          "runs": [
+            "Blockchain provides an immutable record of paper hashes, centre assignments and release events."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Time-locked access addresses the pre-exam confidentiality window.",
+          "runs": [
+            "Time-locked access addresses the pre-exam confidentiality window."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Centre-specific variants provide a practical mechanism for leak attribution.",
+          "runs": [
+            "Centre-specific variants provide a practical mechanism for leak attribution."
+          ],
+          "level": 0
+        },
+        {
+          "text": "Future work will integrate the complete smart contract, encryption/decryption portal, public-web scraper, matching engine and end-to-end evaluation.",
+          "runs": [
+            "Future work will integrate the complete smart contract, encryption/decryption portal, public-web scraper, matching engine and end-to-end evaluation."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "13": [
+    {
+      "shape_idx": 0,
+      "name": "Text Box 84",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 1,
+      "name": "PlaceHolder 1",
+      "full_text": "Plan of Action for Remaining Project Work",
+      "paragraphs": [
+        {
+          "text": "Plan of Action for Remaining Project Work",
+          "runs": [
+            "Plan of Action for Remaining Project Work"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "Date Placeholder 3",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Footer Placeholder 4",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 5",
+      "full_text": "13",
+      "paragraphs": [
+        {
+          "text": "13",
+          "runs": [
+            "13"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Rounded Rectangle 89",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 90",
+      "full_text": "Phase 1",
+      "paragraphs": [
+        {
+          "text": "Phase 1",
+          "runs": [
+            "Phase 1"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 7,
+      "name": "TextBox 91",
+      "full_text": "Paper variants + watermarking",
+      "paragraphs": [
+        {
+          "text": "Paper variants + watermarking",
+          "runs": [
+            "Paper variants + watermarking"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 8,
+      "name": "TextBox 92",
+      "full_text": "Generate 4 controlled variants and verify fingerprints.",
+      "paragraphs": [
+        {
+          "text": "Generate 4 controlled variants and verify fingerprints.",
+          "runs": [
+            "Generate 4 controlled variants and verify fingerprints."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 9,
+      "name": "Rounded Rectangle 93",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 10,
+      "name": "TextBox 94",
+      "full_text": "Phase 2",
+      "paragraphs": [
+        {
+          "text": "Phase 2",
+          "runs": [
+            "Phase 2"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 11,
+      "name": "TextBox 95",
+      "full_text": "Encryption + smart contract",
+      "paragraphs": [
+        {
+          "text": "Encryption + smart contract",
+          "runs": [
+            "Encryption + smart contract"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 12,
+      "name": "TextBox 96",
+      "full_text": "AES encryption, SHA-256 logging, centre mapping and time-lock.",
+      "paragraphs": [
+        {
+          "text": "AES encryption, SHA-256 logging, centre mapping and time-lock.",
+          "runs": [
+            "AES encryption, SHA-256 logging, centre mapping and time-lock."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 13,
+      "name": "Rounded Rectangle 97",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 14,
+      "name": "TextBox 98",
+      "full_text": "Phase 3",
+      "paragraphs": [
+        {
+          "text": "Phase 3",
+          "runs": [
+            "Phase 3"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 15,
+      "name": "TextBox 99",
+      "full_text": "Centre portal",
+      "paragraphs": [
+        {
+          "text": "Centre portal",
+          "runs": [
+            "Centre portal"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 16,
+      "name": "TextBox 100",
+      "full_text": "Encrypted blob retrieval, key-release check, decryption and print workflow.",
+      "paragraphs": [
+        {
+          "text": "Encrypted blob retrieval, key-release check, decryption and print workflow.",
+          "runs": [
+            "Encrypted blob retrieval, key-release check, decryption and print workflow."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 17,
+      "name": "Rounded Rectangle 101",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 18,
+      "name": "TextBox 102",
+      "full_text": "Phase 4",
+      "paragraphs": [
+        {
+          "text": "Phase 4",
+          "runs": [
+            "Phase 4"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 19,
+      "name": "TextBox 103",
+      "full_text": "Web scraping + matching",
+      "paragraphs": [
+        {
+          "text": "Web scraping + matching",
+          "runs": [
+            "Web scraping + matching"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 20,
+      "name": "TextBox 104",
+      "full_text": "Public/controlled sources, text extraction, normalization and variant matching.",
+      "paragraphs": [
+        {
+          "text": "Public/controlled sources, text extraction, normalization and variant matching.",
+          "runs": [
+            "Public/controlled sources, text extraction, normalization and variant matching."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 21,
+      "name": "Rounded Rectangle 105",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 22,
+      "name": "TextBox 106",
+      "full_text": "Phase 5",
+      "paragraphs": [
+        {
+          "text": "Phase 5",
+          "runs": [
+            "Phase 5"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 23,
+      "name": "TextBox 107",
+      "full_text": "Testing + evaluation",
+      "paragraphs": [
+        {
+          "text": "Testing + evaluation",
+          "runs": [
+            "Testing + evaluation"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 24,
+      "name": "TextBox 108",
+      "full_text": "Seed leaks, measure detection/attribution, security tests and latency.",
+      "paragraphs": [
+        {
+          "text": "Seed leaks, measure detection/attribution, security tests and latency.",
+          "runs": [
+            "Seed leaks, measure detection/attribution, security tests and latency."
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 25,
+      "name": "Rounded Rectangle 109",
+      "full_text": "",
+      "paragraphs": [
+        {
+          "text": "",
+          "runs": [],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 26,
+      "name": "TextBox 110",
+      "full_text": "Phase 6",
+      "paragraphs": [
+        {
+          "text": "Phase 6",
+          "runs": [
+            "Phase 6"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 27,
+      "name": "TextBox 111",
+      "full_text": "Final demo + report",
+      "paragraphs": [
+        {
+          "text": "Final demo + report",
+          "runs": [
+            "Final demo + report"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 28,
+      "name": "TextBox 112",
+      "full_text": "End-to-end demonstration, results, limitations and documentation.",
+      "paragraphs": [
+        {
+          "text": "End-to-end demonstration, results, limitations and documentation.",
+          "runs": [
+            "End-to-end demonstration, results, limitations and documentation."
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "14": [
+    {
+      "shape_idx": 0,
+      "name": "PlaceHolder 1",
+      "full_text": "Thank You",
+      "paragraphs": [
+        {
+          "text": "Thank You",
+          "runs": [
+            "Thank You"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 2,
+      "name": "TextBox 6",
+      "full_text": "Dr. Shyama Prasad Mukherjee International Institute of Information Technology, Naya Raipur ",
+      "paragraphs": [
+        {
+          "text": "Dr. Shyama Prasad Mukherjee International Institute of Information Technology, Naya Raipur ",
+          "runs": [
+            "Dr. Shyama Prasad Mukherjee International Institute of Information Technology, Naya Raipur "
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 3,
+      "name": "Date Placeholder 7",
+      "full_text": "06/10/26",
+      "paragraphs": [
+        {
+          "text": "06/10/26",
+          "runs": [
+            "06/10/26"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 4,
+      "name": "Slide Number Placeholder 8",
+      "full_text": "14",
+      "paragraphs": [
+        {
+          "text": "14",
+          "runs": [
+            "14"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 5,
+      "name": "Footer Placeholder 12",
+      "full_text": "International Institute of Information Technology, Naya Raipur",
+      "paragraphs": [
+        {
+          "text": "International Institute of Information Technology, Naya Raipur",
+          "runs": [
+            "International Institute of Information Technology, Naya Raipur"
+          ],
+          "level": 0
+        }
+      ]
+    },
+    {
+      "shape_idx": 6,
+      "name": "TextBox 96",
+      "full_text": "Questions & Discussion",
+      "paragraphs": [
+        {
+          "text": "Questions & Discussion",
+          "runs": [
+            "Questions & Discussion"
+          ],
+          "level": 0
+        }
+      ]
+    }
+  ]
+}
